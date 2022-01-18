@@ -1,75 +1,44 @@
-<!doctype html>
-<html lang="en">
+<div class="container-fluid mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
 
-<head>
-    <title>Login 04</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-
-<body>
-    <section class="ftco-section">
-        <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-10">
-                    <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url(../../assets/woman.jpg);">
-                        </div>
-                        <div class="login-wrap p-4 p-md-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <h3 class="mb-4">Kycu</h3>
-                                </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <form action="#" class="signin-form">
-                                <div class="form-group mb-3">
-                                    <label class="label">Emri Perdoruesit</label>
-                                    <input type="text" name="username" [(ngModel)]="username" class="form-control" placeholder="Emri Perdoruesit" required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="label" for="password">Fjalekalimi</label>
-                                    <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Fjalekalimi" required>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" (click)=handleLogin() class="form-control btn btn-primary rounded submit px-3">Kycu</button>
-                                </div>
-                                <div class="form-group d-md-flex">
-                                    <div class="w-50 text-left">
-                                        <label class="checkbox-wrap checkbox-primary mb-0">Me mbaj ne mend
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-										</label>
-                                    </div>
-                                    <div class="w-50 text-md-right">
-                                        <a href="#">Kam harruar fjalekalimin</a>
-                                    </div>
-                                </div>
-                            </form>
-                            <p class="text-center">Nuk keni Llogari ? <a data-toggle="tab" href="#signup">Krijo nje te re</a></p>
-                        </div>
-                    </div>
+                    <div class="row px-3 justify-content-center border-line"> <img src="../../assets/images/preview.jpg" class="image"> </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <form [formGroup]="loginForm">
+                    <div class="card2 card border-0 px-4 py-5">
+                        <div class="row mb-4 px-3">
+                            <h6 class="mb-0 mr-4 mt-2">Logohu</h6>
+
+                        </div>
+                        <div class="row px-3 mb-4">
+
+                            <div class="line"></div>
+                        </div>
+                        <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Email Addresa  
+                                <span class="error" *ngIf="email.touched"></span>
+                            </h6>
+                        </label> <input class="mb-4 form-control" type="text" name="email" formControlName="email" placeholder="Enter a valid email address">
+                        </div>
+
+                        <div class="row px-3"> <label class="mb-1">
+                       
+                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>
+                            
+                        </label> <input type="password" class="form-control" name="password" formControlName="password" placeholder="Enter password" [(ngModel)]="startyping"> </div>
+                        <div class="row px-3 mb-4">
+                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
+                        </div>
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" (onClick)="saveNewField(startyping)" [disabled]="!startyping">Kycu</button> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Nuk keni llogari? <a class="text-danger ">Regjistrohu</a></small> </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </section>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
-</html>
+    </div>
+</div>
