@@ -8,7 +8,13 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <form [formGroup]="loginForm">
+                <form
+                *ngIf="!isLoggedIn"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate
+              >
                     <div class="card2 card border-0 px-4 py-5">
                         <div class="row mb-4 px-3">
                             <h6 class="mb-0 mr-4 mt-2">Logohu</h6>
@@ -18,18 +24,38 @@
 
                             <div class="line"></div>
                         </div>
-                        <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Addresa  
-                                <span class="error" *ngIf="email.touched"></span>
+                        <div class="row px-3 form-group" > 
+                            <label for="username" class="mb-1">
+                            <h6 class="mb-0 text-sm">Username
+                                <span class="error" *ngIf="username.touched"></span>
                             </h6>
-                        </label> <input class="mb-4 form-control" type="text" name="email" formControlName="email" placeholder="Enter a valid email address">
+                        </label> <input 
+                        class="mb-4 form-control"
+                         type="text" 
+                         name="username"
+                         [(ngModel)]="form.username"
+                         required
+                         #username="ngModel"
+                          placeholder="Enter a valid email address">
                         </div>
 
-                        <div class="row px-3"> <label class="mb-1">
+                        <div class="row px-3 form-group"> <label class="mb-1">
                        
                             <h6 class="mb-0 text-sm">Fjalekalimi</h6>
                             
-                        </label> <input type="password" class="form-control" name="password" formControlName="password" placeholder="Enter password" [(ngModel)]="startyping"> </div>
+                        </label> <input 
+                        type="password" 
+                        class="form-control" 
+                        name="password" 
+                        [(ngModel)]="form.password"
+                        required
+                        minlength="6"
+                        #password="ngModel"
+              
+                        placeholder="Enter password" 
+                        [(ngModel)]="startyping"
+                        
+                        > </div>
                         <div class="row px-3 mb-4">
                             <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
                         </div>
