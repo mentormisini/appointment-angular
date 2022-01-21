@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path:'terminet', component: ListAppointmentsComponent},
   { path:'welcome/:name', component: WelcomeComponent},
   { path:'welcome', component: WelcomeComponent},
+  {path :'register-user',component:RegisterUserComponent},
   { path:'**', component: ErrorComponent}
+ 
 ];
 
 @NgModule({

@@ -22,7 +22,17 @@ export class LoginComponent implements OnInit {
   }
   
   username = '';
+  password='';
+  loginForm = new FormGroup({
+    username: new FormControl(null,Validators.required),
+    password: new FormControl(null,Validators.required)
+
+  })
   
+  handleClear(){
+    this.form.username=null;
+    this.form.password=null;
+  }
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit() {
@@ -37,7 +47,6 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
@@ -45,8 +54,11 @@ export class LoginComponent implements OnInit {
         this.handleLogin();
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = "Useri ose Fjalekalimi inkorrekt";
         this.isLoginFailed = true;
+        
+        
+        
       }
     );
   }
