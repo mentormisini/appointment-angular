@@ -20,6 +20,10 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MaterialModule } from './material.module';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    
+    
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,15 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
+
+  
+
+ 
+    
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

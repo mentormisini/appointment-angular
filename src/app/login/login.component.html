@@ -3,23 +3,26 @@
         <div class="row d-flex">
             <div class="col-lg-6">
                 <div class="card1 pb-5">
-
                     <div class="row px-3 justify-content-center border-line"> <img src="../../assets/images/preview.jpg" class="image"> </div>
                 </div>
             </div>
+
+            <!--Forma-->
             <div class="col-lg-6">
-                <form [formGroup]="loginForm" 
-                *ngIf="!isLoggedIn" name="form" 
+                <form 
+                name="form" 
+                [formGroup]="loginForm" 
+                *ngIf="!isLoggedIn"                 
                 (ngSubmit)="f.form.valid && onSubmit()" 
-                #f="ngForm" novalidate>
+                #f="ngForm" 
+                novalidate>
                     <div class="card2 card border-0 px-4 py-5">
                         <div class="row mb-4 px-3">
-                            <h6 class="mb-0 mr-4 mt-2">Logohu</h6>
+                        <h6 class="mb-0 mr-4 mt-2">Logohu</h6>
                         </div>
                         <div class="row px-3 mb-4">
-                            <div class="line"></div>
+                        <div class="line"></div>
                         </div>
-
                         <div class="row px-3 form-group">
                             <label for="username" class="mb-1">
                             <h6 class="mb-0 text-sm">Username
@@ -39,14 +42,16 @@
                             >
                         </div>
                         
-                        <div class="row px-3 form-group"> <label class="mb-1">                      
-                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>
-                          
+                        <div class="row px-3 form-group"> 
+
+                            <label class="mb-1">                      
+                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>                         
                             <span class="error" 
                             *ngIf="loginForm.get('password').invalid" 
                             [(ngModel)]="startyping">
                             </span>
-                        </label> 
+                            </label> 
+
                             <input 
                             type="password"
                             class="form-control"
@@ -54,21 +59,20 @@
                             name="password"
                             [(ngModel)]="form.password"
                             required minlength="6"
-                            placeholder="Enter password"
-                            > </div>
-                      
-                          <div class="alert alert-primary" role="alert"
-                           *ngIf="isLoginFailed">
-                           <button (click)="handleClear()">Pastro</button>
-                            {{ errorMessage }}
-                           
+                            placeholder="Enter password">
+                        </div>                 
+                          <div class="alert alert-danger"
+                           role="alert"
+                           *ngIf="f.submitted && isLoginFailed">
+                            {{ errorMessage }}                      
                           </div>
+                        
                         <div class="row px-3 mb-4">
-                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
+                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" routerLink="/forgotpassword" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
                         </div>
                         <div class="row mb-3 px-3">
-                            <button type="submit" class="btn btn-blue text-center" [disabled]="loginForm.invalid">Kycu</button> </div>
-                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Nuk keni llogari? <a class="text-danger ">Regjistrohu</a></small> </div>
+                            <button type="submit" class="btn btn-blue text-center" [disabled]="loginForm.invalid" >Kycu</button> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Nuk keni llogari? <a href="#" routerLink="/register-user" class="text-danger ">Regjistrohu</a></small> </div>
                     </div>
                    
                 </form>

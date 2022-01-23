@@ -4,6 +4,7 @@ import { FormControl,FormControlName,FormGroup,Validators } from '@angular/forms
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,19 +30,24 @@ export class LoginComponent implements OnInit {
 
   })
   
-  handleClear(){
-    this.form.username=null;
-    this.form.password=null;
-  }
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router ) { }
+  
+
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
+    
   }
 
+  
+  handleClear(){
+    this.form.username=null;
+    this.form.password=null;
+  }
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {

@@ -7,6 +7,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path:'terminet', component: ListAppointmentsComponent},
   { path:'welcome/:name', component: WelcomeComponent},
   { path:'welcome', component: WelcomeComponent},
-  {path :'register-user',component:RegisterUserComponent},
+  { path:'register-user',component:RegisterUserComponent},
+  { path:'forgotpassword',component:ForgotpasswordComponent},
   { path:'**', component: ErrorComponent}
  
 ];

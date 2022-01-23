@@ -24,7 +24,7 @@
             maxlength="20"
             #username="ngModel"
           />
-          <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div class="alert-danger" *ngIf="f.submitted && username.invalid ">
             <div *ngIf="username.errors.required">Username is required</div>
             <div *ngIf="username.errors.minlength">
               Username must be at least 3 characters
