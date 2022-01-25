@@ -26,7 +26,13 @@ export class AuthService {
     return this.http.post(AUTH_API + 'signup', {
       username: user.username,
       email: user.email,
-      password: user.password
+      password: user.password,
+      birthday: user.birthday,
+      phone: user.celulari,
+      createdDateTime: new Date().toJSON("yyyy/MM/dd HH:mm"),
+      name: user.namesurname,
+      role: ["USER"]
+
     }, httpOptions);
   }
 }

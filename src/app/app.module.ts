@@ -22,6 +22,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module';
+import { OraretComponent } from './oraret/oraret.component';
 
 
 
@@ -41,6 +42,7 @@ import { MaterialModule } from './material.module';
     BoardModeratorComponent,
     BoardUserComponent,
     RegisterUserComponent,
+    OraretComponent,
     
     
    
