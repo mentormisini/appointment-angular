@@ -23,6 +23,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module';
 import { OraretComponent } from './oraret/oraret.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 
@@ -43,6 +44,8 @@ import { OraretComponent } from './oraret/oraret.component';
     BoardUserComponent,
     RegisterUserComponent,
     OraretComponent,
+    ForgotpasswordComponent,
+   
     
     
    
@@ -56,13 +59,8 @@ import { OraretComponent } from './oraret/oraret.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
-
-  
-
- 
-    
-    
+    MaterialModule,
+   
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

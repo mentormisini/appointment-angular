@@ -50,6 +50,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   exports: [
     A11yModule,
@@ -101,7 +102,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatRippleModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+   
+    
 
  
   ],

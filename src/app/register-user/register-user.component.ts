@@ -31,10 +31,12 @@ export class RegisterUserComponent implements OnInit {
     );
   }
 
+  //qekjo e ban si metod numrin 04, e me thirr ndiv pa click
   setNumber(numri){
     numri.value;
   }
 
+  // e bllokon per karaktere veq numra lejon
   keyPressNumbers(event) {
     var charCode = (event.which) ? event.which : event.keyCode;
     // Only Numbers 0-9
