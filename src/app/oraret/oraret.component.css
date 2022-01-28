@@ -2,11 +2,176 @@
     opacity: 0.75;
     font-size: 0.75em;
   }
-<<<<<<< HEAD
-=======
   
   .demo-inline-calendar-card {
     width: 300px;
   }
->>>>>>> f7a56d65762eae71b62807a966345131d94b66a9
+  ::ng-deep.mat-calendar-body-selected{
+    color:#fff;
+    background-color: #081540;
+  }
   
+  .mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  .demo-inline-calendar-card {
+    width: 300px;
+  }
+  
+  .mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  .col-lg-6 {
+    width: 100%;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
+  }
+  
+  .card2 {
+    margin: 0px 40px;
+  }
+  
+  .image {
+    width: 100%;
+  }
+  
+  .border-line {
+    border-right: 1px solid #EEEEEE
+  }
+  
+  .line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+  }
+  
+  .or {
+    width: 10%;
+    font-weight: bold
+  }
+  
+  .text-sm {
+    font-size: 14px !important
+  }
+  
+  ::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+  }
+  
+  .imgcenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  :-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+  }
+  
+  ::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  
+
+  
+  button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+  }
+  
+  a {
+    color: inherit;
+    cursor: pointer
+  }
+  
+  .btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+  }
+  .btn-brown {
+    background-color: #353646;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+  }
+  
+  
+  .btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+  }
+  
+  .bg-blue {
+   
+    background-color: #1A237E
+  }
+  
+  @media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+    .image {
+        width: 300px;
+        height: 220px
+    }
+    .border-line {
+        border-right: none
+    }
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+  }
+
+
+.mat-stepper-horizontal, .mat-stepper-vertical{
+  background-color: #fff;
+  box-shadow:1px 1px 2px 2px rgb(233, 232, 232);
+ 
+}
+::ng-deep.mat-horizontal-stepper-header-container{
+  background-color:whitesmoke;
+
+}

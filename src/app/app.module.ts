@@ -45,12 +45,10 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     RegisterUserComponent,
     OraretComponent,
     ForgotpasswordComponent,
-   
-    
-    
-   
-    
+
   ],
+
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,10 +57,13 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialModule
+   
    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }
