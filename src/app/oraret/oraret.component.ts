@@ -7,11 +7,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver} from '@angular/cdk/layout';
 import { map} from 'rxjs/operators';
 import { StepperOrientation } from '@angular/cdk/stepper';
-
-
-
-
-
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-oraret',
@@ -28,8 +24,8 @@ export class OraretComponent implements OnInit {
   selektori:any;
   emri:string;
   
-  constructor(private oraretService: OraretService,
-    private _formBuilder:FormBuilder) { this.getOraret();}
+  constructor(private oraretService: OraretService, private _formBuilder:FormBuilder,
+     public datepipe: DatePipe) {}
 
   
   ngOnInit(): void {
@@ -47,11 +43,13 @@ export class OraretComponent implements OnInit {
     //   response => this.oraret = response.oraret);
   }
   onClickDate(){
-    console.log(this.selected);
+    console.log("dataa" + this.selected);
+    this.getOraret(this.selected);
   }
 
-  getOraret(){
-    this.oraretService.getOraret().subscribe(
+  getOraret(selectedDate: Date){
+    let latest_date =this.datepipe.transform(this.selected, 'yyyy-MM-dd');
+    this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
   
   }
