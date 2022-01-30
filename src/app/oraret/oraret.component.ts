@@ -43,6 +43,7 @@ export class OraretComponent implements OnInit {
     //   response => this.oraret = response.oraret);
   }
   onClickDate(){
+    this.oraret = [];
     console.log("dataa" + this.selected);
     this.getOraret(this.selected);
   }
@@ -55,7 +56,11 @@ export class OraretComponent implements OnInit {
   }
 
   shfaqeOraret(response){
-    this.oraret = response;
+    //console.log(response)
+    response.forEach(element => {
+       this.oraret.push(element[0])
+    });
+   // this.oraret = response;
   
     console.log(response);
   }
