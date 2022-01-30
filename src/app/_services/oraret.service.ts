@@ -26,9 +26,5 @@ export class OraretService {
     return (this.http.get(`http://localhost:8080/terminet/merr-terminet-lira/${selected}`, httpOptions))
     .pipe(map((data: any)=>
     data));
-    
-
-    //console.log(a);
-  
   }
 }
