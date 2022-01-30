@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module';
 import { OraretComponent } from './oraret/oraret.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -46,6 +47,11 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     OraretComponent,
     ForgotpasswordComponent,
 
+    OraretComponent
+    
+    
+   
+    
   ],
 
   
@@ -60,8 +66,9 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     MaterialModule
    
    
+    
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]
 
 })
