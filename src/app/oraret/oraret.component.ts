@@ -49,7 +49,6 @@ export class OraretComponent implements OnInit {
 
   getOraret(selectedDate: Date){
     let latest_date =this.datepipe.transform(this.selected, 'yyyy-MM-dd');
-    console.log("latesssssssst" + latest_date);
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
   

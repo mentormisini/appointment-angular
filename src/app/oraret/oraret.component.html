@@ -1,23 +1,158 @@
 <div class="container">
     <div class="col-xs-12">
 
-        <hr>
-        <mat-card class="demo-inline-calendar-card">
-            <mat-calendar (click)="onClickDate()"  [(selected)]="selected"></mat-calendar>
-          </mat-card>
-          <p>Selected date: {{selected}}</p>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Zgjedh orarin</mat-label>
-            <mat-select [formControl]="toppings" >
-              <mat-select-trigger>
-                {{toppings.value }}
-             
-              </mat-select-trigger>
-              <mat-option *ngFor="let topping of oraret" [value]="topping">{{topping}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          
+
+  
+    <mat-horizontal-stepper #stepper>
+      <!-- stepp1 -->
+      <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup" >
+                <div class="container-fluid mx-auto">
+                  <div class="card card0 border-0">
+                      <div class="row d-flex">
+                          <div class="col-lg-6">
+                              <div class="card1 pb-5">
+                                <br>
+                                  <div class="row px-3 justify-content-center border-line">
+                                    <div class="alert alert-success" role="alert">
+                                      <h4 class="alert-heading">Si ta realizojme nje termin</h4>
+                                      <hr>
+                                      <p><b>Hapi 1:</b> Zgjedh Sherbimin</p>
+                                      <p><b>Hapi 2:</b> Zgjedh Punetorin/en</p>
+                                      <p><b>Hapi 3:</b> Zgjedh Daten pastaj oren</p>
+                                      <p><b>Hapi 4:</b> Sheno te dhenat tuaja</p>
+                                      <p><b>Hapi 5:</b> Gjithqka gati per 60 sekonda</p>
+                                     
+                                      <p class="mb-0">Ne ju mundesojm te rezervoni edhe kur jemi ne gjum.</p>
+                                    </div>
+                              </div>
+                              </div>
+                          </div>
+                
+                          <div class="col-lg-6">
+                            <div class="card1 pb-5">
+                                <div class="row px-3 justify-content-center">
+                                <ng-template matStepLabel>Hapi 1</ng-template>
+                                <br>
+                                <mat-form-field appearance="fill" class="demo-inline-calendar-card">
+                                <mat-label>Zgjedhe Sherbimin</mat-label>
+                                  <mat-select [formControl]="toppings"
+                                  [(ngModel)]="selektori">
+
+                                    <mat-select-trigger>
+                                      {{toppings.value}}             
+                                    </mat-select-trigger>
+
+                                    <mat-option
+                                    *ngFor="let topping of oraret" 
+                                    [value]="topping">
+                                      {{topping}}
+                                    </mat-option >
+
+                                  </mat-select> 
+                                </mat-form-field>
+                                
+                                <mat-form-field appearance="fill" class="demo-inline-calendar-card">
+                                  <mat-label>Zgjedhe Punetorin</mat-label>
+                                    <mat-select [formControl]="toppings" [(ngModel)]="selektori">
+                                      <mat-select-trigger>
+                                        {{toppings.value}}             
+                                      </mat-select-trigger>
+                                      <mat-option *ngFor="let topping of oraret" [value]="topping" >
+                                        {{topping}}
+                                      </mat-option >
+                                    </mat-select> 
+                                  </mat-form-field>
+                                <div>
+                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
+                                </div>	
+                            </div>
+                            </div>
+                            </div>  
+                          </div>
+                      </div>               
+                  </div>
+              </form>
+            </mat-step>
+            <!--STEPP1 END-->
+
+  <!-- stepp2 -->
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" >
+      <div class="container-fluid mx-auto">
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                      <br>
+                        <div class="row px-3 justify-content-center border-line">
+                        <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar (click)="onClickDate()"  [(selected)]="selected"></mat-calendar>
+                      </mat-card>
+                    </div>
+                    </div>
+                </div>
+      
+                <div class="col-lg-6">
+                  <div class="card1 pb-5">
+                      <div class="row px-3 justify-content-center">
+                      <ng-template matStepLabel>Hapi 2</ng-template>
+                      <mat-form-field appearance="fill" class="demo-inline-calendar-card">
+                      <mat-label>Zgjedhe orarin</mat-label>
+                        <mat-select [formControl]="toppings" [(ngModel)]="selektori">
+                          <mat-select-trigger>
+                            {{toppings.value}}             
+                          </mat-select-trigger>
+                          <mat-option *ngFor="let topping of oraret" [value]="topping" >
+                            {{topping}}
+                          </mat-option >
+                        </mat-select> 
+                      </mat-form-field>
+                      <div>
+                      
+                        <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
+                      </div>	
+                        <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
+                  </div>
+                  </div>
+                  </div>  
+                </div>
+            </div>               
+        </div>
+    </form>
+  </mat-step>
+  <!--STEPP2 END-->
+
+
+
+
+    <!-- stepp3 -->
+    <mat-step [stepControl]="thirdFormGroup" >
+      <form [formGroup]="thirdFormGroup" >
+        <div class="container-fluid mx-auto">
+          <div class="card card0 border-0">
+              <div class="row d-flex">
+                  <div class="col-lg-6">
+                      <div class="card1 pb-5">
+                        <br>
+                          <div class="row px-3 justify-content-center border-line">
+                            <div class="alert alert-secondary" role="alert">
+                              <h4 class="alert-heading">Pothuajse Gati</h4>
+                              <hr>
+                              <p>Ploteso te dhenat tuaja, Konfrimo ato dhe shtyp butonin rezervo</p>
+                              
+                              <p><b>Sherbimi:</b> </p>
+                              <p><b>Punetori:</b> </p>
+                              <p><b>Data dhe ora:</b>  :  {{selected}} </p>
+                              <p><b>Emri dhe Mbiemri</b>  :  {{emri.value}} {{mbiemri.value}}
+                               </p>
+                              <p><b>Emaili:</b>  :  {{email.value}} </p>
+                              <p><b>Nr Celularit:</b>  :  {{nr.value}} </p>
+                            </div>
+                      </div>
+                      </div>
+                  </div>
         
                   <div class="col-lg-6">
                     <div class="card1 pb-5">
@@ -27,7 +162,7 @@
                         <table class="example-full-width" cellspacing="0"><tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
-                            <input type="text" #emri (keyup)="0" matInput required>
+                            <input type="text" #emri matInput required>
                           </mat-form-field></td>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mbiemri</mat-label>
