@@ -140,7 +140,7 @@ body {
       text-align: center;
     }
     .hero .hero-img img {
-      width: 50%;
+      width: 100%;
     }
   }
   @media (max-width: 768px) {
@@ -972,6 +972,17 @@ body {
   #footer .credits a {
     color: #081540;
   }
+  .btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
   @media (max-width: 575px) {
     #footer .copyright, #footer .credits {
       float: none;

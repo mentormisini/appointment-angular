@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver} from '@angular/cdk/layout';
 import { map} from 'rxjs/operators';
 import { StepperOrientation } from '@angular/cdk/stepper';
-import { DatePipe } from '@angular/common'
-
+import { DatePipe, formatDate } from '@angular/common'
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -23,12 +23,20 @@ export class OraretComponent implements OnInit {
   thirdFormGroup:FormGroup;
   selektori:any;
   emri:string;
+  kohapritjes=6;
+  paraqitMsg:string;
   
-  constructor(private oraretService: OraretService, private _formBuilder:FormBuilder,
-     public datepipe: DatePipe) {}
-
+  constructor(private oraretService: OraretService,
+     private _formBuilder:FormBuilder,
+     public datepipe: DatePipe,
+     private _snackBar:MatSnackBar) {}
+     openSnackBar() {
+      this._snackBar.open('Zgjedheni Daten pastaj oren','X', {
+        duration: this.kohapritjes * 1000,
+      });
+    }
   
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: [Validators.required],
     });
@@ -44,9 +52,10 @@ export class OraretComponent implements OnInit {
   }
   onClickDate(){
     this.oraret = [];
-    console.log("dataa" + this.selected);
+    console.log(this.datepipe.transform(this.selected,'yyyy-MM-dd'));
     this.getOraret(this.selected);
   }
+
 
   getOraret(selectedDate: Date){
     let latest_date =this.datepipe.transform(this.selected, 'yyyy-MM-dd');
@@ -54,6 +63,7 @@ export class OraretComponent implements OnInit {
       respon => this.shfaqeOraret(respon));
   
   }
+  
 
   shfaqeOraret(response){
     //console.log(response)
@@ -64,7 +74,4 @@ export class OraretComponent implements OnInit {
   
     console.log(response);
   }
-
-
-  
 }

@@ -72,7 +72,11 @@
   .text-sm {
     font-size: 14px !important
   }
-  
+  .detajet{
+    color:#1A237E;
+    display: inline;
+    float: right;
+  }
   ::placeholder {
     color: #BDBDBD;
     opacity: 1;
@@ -145,7 +149,7 @@
   
   .bg-blue {
    
-    background-color: #1A237E
+    background-color: #1A237E;
   }
   
   @media screen and (max-width: 991px) {
@@ -173,5 +177,13 @@
 }
 ::ng-deep.mat-horizontal-stepper-header-container{
   background-color:whitesmoke;
+  color:white;
+}
+::ng-deep.mat-step-header .mat-step-label.mat-step-label-active{
+color:#000;
+}
+::ng-deep.mat-step-label-selected{
+  color:#1A237E !important;
+ 
 
 }

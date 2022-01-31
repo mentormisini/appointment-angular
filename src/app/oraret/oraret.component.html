@@ -59,13 +59,14 @@
                                       <mat-select-trigger>
                                         {{toppings.value}}             
                                       </mat-select-trigger>
-                                      <mat-option *ngFor="let topping of oraret" [value]="topping" >
+                                      <mat-option *ngFor="let topping of oraret" 
+                                      [value]="topping" >
                                         {{topping}}
                                       </mat-option >
                                     </mat-select> 
                                   </mat-form-field>
                                 <div>
-                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
+                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="selektori" (click)="openSnackBar()">Vazhdo</button>
                                 </div>	
                             </div>
                             </div>
@@ -87,30 +88,35 @@
                     <div class="card1 pb-5">
                       <br>
                         <div class="row px-3 justify-content-center border-line">
-                        <mat-card class="demo-inline-calendar-card">
-                        <mat-calendar (click)="onClickDate()"  [(selected)]="selected"></mat-calendar>
+                        <mat-card class="demo-inline-calendar-card"  >
+                        <mat-calendar (click)="onClickDate()" [(selected)]="selected" ></mat-calendar>
                       </mat-card>
                     </div>
                     </div>
                 </div>
-      
+             
                 <div class="col-lg-6">
                   <div class="card1 pb-5">
                       <div class="row px-3 justify-content-center">
                       <ng-template matStepLabel>Hapi 2</ng-template>
-                      <mat-form-field appearance="fill" class="demo-inline-calendar-card">
+                                         
+                      <mat-form-field appearance="fill"
+                      
+                      class="demo-inline-calendar-card"  >
+                                        
                       <mat-label>Zgjedhe orarin</mat-label>
                         <mat-select [formControl]="toppings" [(ngModel)]="selektori">
                           <mat-select-trigger>
                             {{toppings.value}}             
                           </mat-select-trigger>
-                          <mat-option *ngFor="let topping of oraret" [value]="topping" >
+                          <mat-option *ngFor="let topping of oraret"
+                           [value]="topping">
                             {{topping}}
                           </mat-option >
                         </mat-select> 
                       </mat-form-field>
-                      <div>
-                      
+      
+                      <div> 
                         <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
                       </div>	
                         <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
@@ -142,14 +148,29 @@
                               <hr>
                               <p>Ploteso te dhenat tuaja, Konfrimo ato dhe shtyp butonin rezervo</p>
                               
-                              <p><b>Sherbimi:</b> </p>
-                              <p><b>Punetori:</b> </p>
-                              <p><b>Data dhe ora:</b>  :  {{selected}} </p>
-                              <p><b>Emri dhe Mbiemri</b>  :  {{emri.value}} {{mbiemri.value}}
-                               </p>
-                              <p><b>Emaili:</b>  :  {{email.value}} </p>
-                              <p><b>Nr Celularit:</b>  :  {{nr.value}} </p>
-                            </div>
+                            <b>Sherbimi</b>
+                            <br>
+                            <b>Punetori</b>
+                            <br>
+                            <b>Data dhe ora:</b>
+                            <b class="detajet">
+                            {{selected| date : 'dd-MM-yyyy'}}  {{selektori}}
+                            </b>
+                            <br>
+                            <b>Emri dhe Mbiemri</b>
+                            <b class="detajet"> {{emri.value}} {{mbiemri.value}}  </b>
+                            
+                            <br>
+                            <b>Emaili:</b>
+                            <b class="detajet"> 
+                            {{email.value}}
+                            </b>
+                            <br>
+                            <b>Nr Celularit:</b>
+                            <b class="detajet">
+                            {{nr.value}}
+                            </b>
+                          </div>
                       </div>
                       </div>
                   </div>
