@@ -66,6 +66,43 @@
                             #birthday="ngModel"                                          
                             required>               
                         </div>
+                            <input 
+                            type="text"
+                            class="form-control"
+                            name="namesurname"
+                            [(ngModel)]="form.namesurname"                           
+                            minlength="5"
+                            maxlength="20"
+                            #namesurname="ngModel"                                          
+                            placeholder="Sheno Emrin dhe Mbiemri tuaj"
+                            required>               
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="namesurname" class="mb-1">
+                            <h6 class="mb-0 text-sm">Datelindja    
+                            </h6>     
+                            </label>       
+
+                        <div class="d-inline-block"
+                        *ngIf="birthday.invalid && birthday.touched"> 
+                        <div *ngIf="birthday.errors.required">Sheno te dhenat</div>
+                        
+                        </div>
+                            <input 
+                            type="date"
+                            class="form-control"
+                            name="birthday"
+                            [(ngModel)]="form.birthday"                           
+                            #birthday="ngModel"                                          
+                            required>               
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="namesurname" class="mb-1">
+                            <h6 class="mb-0 text-sm">Email Adressa    
+                            </h6>     
+                            </label>       
 
                         <div class=" form-group">
                             <label for="namesurname" class="mb-1">

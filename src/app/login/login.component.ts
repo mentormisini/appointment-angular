@@ -6,6 +6,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -52,6 +53,11 @@ export class LoginComponent implements OnInit {
   
   }
 
+  
+  handleClear(){
+    this.form.username=null;
+    this.form.password=null;
+  }
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {

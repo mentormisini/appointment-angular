@@ -10,6 +10,8 @@ const httpOptions = {
 };
 
 const AUTH_API = 'http://localhost:8080/terminet/krijo-termin';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 export class OraretBean{
 
@@ -47,5 +49,11 @@ export class OraretService {
 
     }, httpOptions);
 
+
+  constructor(private http: HttpClient) { }
+
+  getOraret() {
+    return this.http.get<OraretBean>('http://localhost:8080/api/auth/terminet-lira');
+  
   }
 }

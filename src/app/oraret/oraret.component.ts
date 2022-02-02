@@ -9,7 +9,6 @@ import { map} from 'rxjs/operators';
 import { StepperOrientation } from '@angular/cdk/stepper';
 import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { collectExternalReferences } from '@angular/compiler';
 import { AuthService } from '../_services/auth.service';
 @Component({
   selector: 'app-oraret',
@@ -86,15 +85,22 @@ export class OraretComponent implements OnInit {
     console.log(response);
   }
 
-  submit(){
-    this.oraretService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
-      data => {console.log("weeeeeeeeeeeeeeeeee");
+  onSubmit() {
+    this.authService.regjistroTerminet(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isFailed = false;
+        
+        
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isFailed = true;
       }
     );
-    console.log("submit form");
-    console.log("oraaaaa" + this.secondFormGroup.value)
-    console.log(this.firstFormGroup.getRawValue);
-    console.log(this.secondFormGroup.value);
-    console.log("emriiiii" + this.thirdFormGroup.value);
-}
+  }
+
+
+
 }
