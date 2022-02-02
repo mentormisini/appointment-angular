@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,12 +32,19 @@ export class LoginComponent implements OnInit {
       private _snackBar: MatSnackBar
        ) { }
   
+<<<<<<< Updated upstream
        openSnackBar() {
         this._snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
           duration: this.durationInSeconds * 1000
         });
         this.handleClear();
       }
+=======
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router ) { }
+  
+
+>>>>>>> Stashed changes
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -47,12 +55,15 @@ export class LoginComponent implements OnInit {
   }
   //
 
+<<<<<<< Updated upstream
   handleClear(){
     this.form.username='';
     this.form.password='';
   
   }
 
+=======
+>>>>>>> Stashed changes
   
   handleClear(){
     this.form.username=null;

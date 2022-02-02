@@ -22,9 +22,12 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module';
+<<<<<<< Updated upstream
 import { OraretComponent } from './oraret/oraret.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DatePipe } from '@angular/common';
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -44,10 +47,13 @@ import { DatePipe } from '@angular/common';
     BoardModeratorComponent,
     BoardUserComponent,
     RegisterUserComponent,
+<<<<<<< Updated upstream
     OraretComponent,
     ForgotpasswordComponent,
 
     OraretComponent
+=======
+>>>>>>> Stashed changes
     
     
    
@@ -64,8 +70,11 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule
+<<<<<<< Updated upstream
    
    
+=======
+>>>>>>> Stashed changes
 
   
 

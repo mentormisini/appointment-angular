@@ -8,7 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+<<<<<<< Updated upstream
 import { ProfileComponent } from './profile/profile.component';
+=======
+>>>>>>> Stashed changes
 
 
 const routes: Routes = [
@@ -20,7 +23,10 @@ const routes: Routes = [
   { path:'welcome', component: WelcomeComponent},
   { path:'register-user',component:RegisterUserComponent},
   { path:'forgotpassword',component:ForgotpasswordComponent},
+<<<<<<< Updated upstream
    {path :'profile',component:ProfileComponent},
+=======
+>>>>>>> Stashed changes
   { path:'**', component: ErrorComponent}
  
 ];

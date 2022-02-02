@@ -34,6 +34,7 @@
                         *ngIf="namesurname.invalid && namesurname.touched"> 
                         <div *ngIf="namesurname.errors.required">Sheno te dhenat</div>
                         <div *ngIf="namesurname.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
+<<<<<<< Updated upstream
                         </div>
                             <input 
                             type="text"
@@ -114,6 +115,66 @@
                         *ngIf="email.invalid && email.touched"> 
                         <div *ngIf="email.errors.required">Sheno te dhenat</div>
                         <div *ngIf="email.errors.email">Sheno emailin e sakt</div>
+=======
+>>>>>>> Stashed changes
+                        </div>
+                            <input 
+                            type="text"
+                            class="form-control"
+<<<<<<< Updated upstream
+                            name="email"
+                            [(ngModel)]="form.email"                           
+                            #email="ngModel"                                          
+                            placeholder="Sheno emailin tuaj"
+                            required email>               
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="celulari" class="mb-1">
+                            <h6 class="mb-0 text-sm"> Celulari    
+=======
+                            name="namesurname"
+                            [(ngModel)]="form.namesurname"                           
+                            minlength="5"
+                            maxlength="20"
+                            #namesurname="ngModel"                                          
+                            placeholder="Sheno Emrin dhe Mbiemri tuaj"
+                            required>               
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="namesurname" class="mb-1">
+                            <h6 class="mb-0 text-sm">Datelindja    
+                            </h6>     
+                            </label>       
+
+                        <div class="d-inline-block"
+                        *ngIf="birthday.invalid && birthday.touched"> 
+                        <div *ngIf="birthday.errors.required">Sheno te dhenat</div>
+                        
+                        </div>
+                            <input 
+                            type="date"
+                            class="form-control"
+                            name="birthday"
+                            [(ngModel)]="form.birthday"                           
+                            #birthday="ngModel"                                          
+                            required>               
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="namesurname" class="mb-1">
+                            <h6 class="mb-0 text-sm">Email Adressa    
+>>>>>>> Stashed changes
+                            </h6>     
+                            </label>       
+
+                        <div class="d-inline-block"
+<<<<<<< Updated upstream
+=======
+                        *ngIf="email.invalid && email.touched"> 
+                        <div *ngIf="email.errors.required">Sheno te dhenat</div>
+                        <div *ngIf="email.errors.email">Sheno emailin e sakt</div>
                         </div>
                             <input 
                             type="text"
@@ -132,6 +193,7 @@
                             </label>       
 
                         <div class="d-inline-block"
+>>>>>>> Stashed changes
                         *ngIf="celulari.invalid && celulari.touched"> 
                         <div *ngIf="celulari.errors.required">Sheno te dhenat</div>
                         <div *ngIf="celulari.errors.minlength">Duhet te jene gjithsej 9 numra</div>
@@ -198,11 +260,21 @@
                         <button class="btn btn-blue text-center">Regjistrohu</button> </div>
                         
                         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+<<<<<<< Updated upstream
                         Regjistrimi Deshtoi!<br />
                         {{ errorMessage }}        
                         </div>
                    
                         
+=======
+                        Signup failed!<br />
+                        {{ errorMessage }}
+                        </div>
+
+                        <div class="alert alert-success" *ngIf="isSuccessful">
+                            Your registration is successful!
+                          </div>
+>>>>>>> Stashed changes
                             
                     </div>
                 </form>

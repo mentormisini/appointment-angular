@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,6 +11,8 @@ const httpOptions = {
 };
 
 const AUTH_API = 'http://localhost:8080/terminet/krijo-termin';
+=======
+>>>>>>> Stashed changes
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -24,6 +27,7 @@ export class OraretBean{
   providedIn: 'root'
 })
 export class OraretService {
+<<<<<<< Updated upstream
   
 
   constructor(private http: HttpClient) { }
@@ -49,6 +53,8 @@ export class OraretService {
 
     }, httpOptions);
 
+=======
+>>>>>>> Stashed changes
 
   constructor(private http: HttpClient) { }
 

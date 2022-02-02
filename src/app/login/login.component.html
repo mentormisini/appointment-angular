@@ -11,7 +11,12 @@
             <!--Forma-->
             <div class="col-lg-6">
                 <form 
+<<<<<<< Updated upstream
                 name="form"    
+=======
+                name="form" 
+                [formGroup]="loginForm" 
+>>>>>>> Stashed changes
                 *ngIf="!isLoggedIn"                 
                 (ngSubmit)="f.form.valid && onSubmit()" 
                 #f="ngForm" 
@@ -43,14 +48,25 @@
                         <div class="row px-3 form-group"> 
 
                             <label class="mb-1">                      
+<<<<<<< Updated upstream
                             <h6 class="mb-0 text-sm">Fjalekalimi</h6>                             
                             </label> 
                            
+=======
+                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>                         
+                            <span class="error" 
+                            *ngIf="loginForm.get('password').invalid" 
+                            [(ngModel)]="startyping">
+                            </span>
+                            </label> 
+
+>>>>>>> Stashed changes
                             <input 
                             type="password"
                             class="form-control"
                             name="password"
                             [(ngModel)]="form.password"
+<<<<<<< Updated upstream
                             required minlength="6"                           
                             placeholder="Sheno Fjalkalimin"
                             >
@@ -63,6 +79,14 @@
                            *ngIf="f.submitted && isLoginFailed" 
                            (click)="handleClear()"   
                            >
+=======
+                            required minlength="6"
+                            placeholder="Enter password">
+                        </div>                 
+                          <div class="alert alert-danger"
+                           role="alert"
+                           *ngIf="f.submitted && isLoginFailed">
+>>>>>>> Stashed changes
                             {{ errorMessage }}                      
                           </div>
                         
@@ -70,10 +94,14 @@
                             <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" routerLink="/forgotpassword" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
                         </div>
                         <div class="row mb-3 px-3">
+<<<<<<< Updated upstream
                             <button type="submit" class="btn btn-blue text-center"
                             [disabled]="!f.form.valid"
                             >Kycu</button> </div>
 
+=======
+                            <button type="submit" class="btn btn-blue text-center" [disabled]="loginForm.invalid" >Kycu</button> </div>
+>>>>>>> Stashed changes
                         <div class="row mb-4 px-3"> <small class="font-weight-bold">Nuk keni llogari? <a href="#" routerLink="/register-user" class="text-danger ">Regjistrohu</a></small> </div>
                     </div>
                    
