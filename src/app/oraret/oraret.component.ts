@@ -9,6 +9,7 @@ import { map} from 'rxjs/operators';
 import { StepperOrientation } from '@angular/cdk/stepper';
 import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { collectExternalReferences } from '@angular/compiler';
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -38,13 +39,20 @@ export class OraretComponent implements OnInit {
   
     ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: [Validators.required],
+      sherbimiZgjedhur : [Validators.required],
+      puntoriZgjedhur : [Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required],
+      orarizgjedhur: ['', Validators.required],
+     // dataZgjedhur: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      thirdtCtrl: [Validators.required],
+      emri: ['', Validators.required],
+      mbiemri: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      numri: ['', Validators.required, Validators.pattern('[- +()0-9]+')
+    ]
+    
     });
   
     // this.oraretService.getOraret().subscribe(
@@ -63,7 +71,6 @@ export class OraretComponent implements OnInit {
       respon => this.shfaqeOraret(respon));
   
   }
-  
 
   shfaqeOraret(response){
     //console.log(response)
@@ -74,4 +81,16 @@ export class OraretComponent implements OnInit {
   
     console.log(response);
   }
+
+  submit(){
+    this.oraretService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
+      data => {console.log("weeeeeeeeeeeeeeeeee");
+      }
+    );
+    console.log("submit form");
+    console.log("oraaaaa" + this.secondFormGroup.value)
+    console.log(this.firstFormGroup.getRawValue);
+    console.log(this.secondFormGroup.value);
+    console.log("emriiiii" + this.thirdFormGroup.value);
+}
 }
