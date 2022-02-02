@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -13,9 +14,16 @@ export class RegisterUserComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   numri='04';
-  constructor(private authService: AuthService, private router: Router) { }
+  kohapritjes=7;
+  constructor(private authService: AuthService,
+     private router: Router,
+     private _snackBar:MatSnackBar) { }
 
- 
+     openSnackBar() {
+      this._snackBar.open('Ju u regjistruat me sukses, Logohuni','X', {
+        duration: this.kohapritjes * 1000,
+      });
+     }
   onSubmit() {
     this.authService.register(this.form).subscribe(
       data => {
@@ -23,6 +31,9 @@ export class RegisterUserComponent implements OnInit {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.handleRegistration();
+        this.openSnackBar();
+        
+        
       },
       err => {
         this.errorMessage = err.error.message;
@@ -52,7 +63,8 @@ export class RegisterUserComponent implements OnInit {
   }
 
   handleRegistration(){
-    this.router.navigate(['welcome'])
+    this.router.navigate(['login'])
+  
   }
 
 }

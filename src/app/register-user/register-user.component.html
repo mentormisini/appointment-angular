@@ -161,16 +161,17 @@
                         <button class="btn btn-blue text-center">Regjistrohu</button> </div>
                         
                         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                        Signup failed!<br />
-                        {{ errorMessage }}
+                        Regjistrimi Deshtoi!<br />
+                        {{ errorMessage }}        
                         </div>
-
-                        <div class="alert alert-success" *ngIf="isSuccessful">
-                            Your registration is successful!
-                          </div>
+                   
+                        
                             
                     </div>
                 </form>
+                <div *ngIf="isSuccessful" (click)="openSnackBar()">
+                  </div>
+              
             </div>
         </div>
 

@@ -35,4 +35,19 @@ export class AuthService {
 
     }, httpOptions);
   }
+
+  regjistroTerminet(userDetails): Observable<any>{
+    return this.http.post(AUTH_API + 'submitAppointment',{
+      sherbimet:userDetails.sherbimet,
+      punetoret:userDetails.punetoret,
+      dataStartuse:userDetails.dataStartuse,
+      orariStartus:userDetails.orariStartus,
+      emri:userDetails.emri,
+      mbiemri:userDetails.mbiemri,
+      email:userDetails.email,
+      tel:userDetails.tel,
+      role: ["USER"]
+    }, httpOptions);
+
+  }
 }

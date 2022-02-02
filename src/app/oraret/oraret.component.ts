@@ -9,6 +9,7 @@ import { map} from 'rxjs/operators';
 import { StepperOrientation } from '@angular/cdk/stepper';
 import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../_services/auth.service';
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -24,12 +25,17 @@ export class OraretComponent implements OnInit {
   selektori:any;
   emri:string;
   kohapritjes=6;
-  paraqitMsg:string;
+  isSuccessful = false;
+  isFailed = false;
+  errorMessage:string;
+  form: any = {};
+
   
   constructor(private oraretService: OraretService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
-     private _snackBar:MatSnackBar) {}
+     private _snackBar:MatSnackBar,
+     private authService: AuthService) {}
      openSnackBar() {
       this._snackBar.open('Zgjedheni Daten pastaj oren','X', {
         duration: this.kohapritjes * 1000,
@@ -61,7 +67,6 @@ export class OraretComponent implements OnInit {
     let latest_date =this.datepipe.transform(this.selected, 'yyyy-MM-dd');
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
-  
   }
   
 
@@ -71,7 +76,25 @@ export class OraretComponent implements OnInit {
        this.oraret.push(element[0])
     });
    // this.oraret = response;
-  
     console.log(response);
   }
+
+  onSubmit() {
+    this.authService.regjistroTerminet(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isFailed = false;
+        
+        
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isFailed = true;
+      }
+    );
+  }
+
+
+
 }

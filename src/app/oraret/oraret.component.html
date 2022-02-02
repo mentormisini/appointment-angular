@@ -7,24 +7,29 @@
     <mat-horizontal-stepper #stepper>
       <!-- stepp1 -->
       <mat-step [stepControl]="firstFormGroup">
-              <form [formGroup]="firstFormGroup" >
+              <form
+                name="form"
+                *ngIf="!isSuccessful"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm" 
+               [formGroup]="firstFormGroup" novalidate>
                 <div class="container-fluid mx-auto">
                   <div class="card card0 border-0">
                       <div class="row d-flex">
                           <div class="col-lg-6">
                               <div class="card1 pb-5">
                                 <br>
-                                  <div class="row px-3 justify-content-center border-line">
-                                    <div class="alert alert-success" role="alert">
+                                <div class="row px-3 justify-content-center border-line">
+                                  <div class="alert alert-secondary" role="alert">
                                       <h4 class="alert-heading">Si ta realizojme nje termin</h4>
                                       <hr>
-                                      <p><b>Hapi 1:</b> Zgjedh Sherbimin</p>
-                                      <p><b>Hapi 2:</b> Zgjedh Punetorin/en</p>
-                                      <p><b>Hapi 3:</b> Zgjedh Daten pastaj oren</p>
-                                      <p><b>Hapi 4:</b> Sheno te dhenat tuaja</p>
-                                      <p><b>Hapi 5:</b> Gjithqka gati per 60 sekonda</p>
-                                     
-                                      <p class="mb-0">Ne ju mundesojm te rezervoni edhe kur jemi ne gjum.</p>
+                                      <h6><b>Hapi 1:</b> Zgjedh Sherbimin</h6>
+                                      <h6> <b> Hapi 2: </b>Zgjedh Punetorin/en</h6>
+                                      <h6><b>Hapi 3:</b> Zgjedh Daten pastaj oren</h6>
+                                      <h6><b>Hapi 4:</b> Sheno te dhenat tuaja</h6>
+                                      <h6><b>Hapi 5:</b> Gjithqka gati per 60 sekonda</h6>
+                                      <hr>
+                                      <p class="mw-100">Ne ju mundesojm ta realizoni rezervimin tuaj ne cdo kohe.</p>
                                     </div>
                               </div>
                               </div>
@@ -187,7 +192,7 @@
                           </mat-form-field></td>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mbiemri</mat-label>
-                            <input type="text" #mbiemri (keyup)="0" matInput required>
+                            <input type="text" #mbiemri  matInput required>
                           </mat-form-field></td>
                         </tr></table>
 
@@ -202,11 +207,9 @@
                         <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Numri Celularit</mat-label>
-                            <input type="number"  #nr (keyup)="0" matInput>
+                            <input type="text"  #nr  matInput>
                           </mat-form-field></td>
-                        </tr>
-                      
-                      
+                        </tr>             
                       </table>
                         
                         
