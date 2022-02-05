@@ -15,11 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-<<<<<<< Updated upstream
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
-=======
-import { MatStepperModule } from '@angular/material/stepper';
->>>>>>> Stashed changes
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -105,14 +101,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatRippleModule,
     FormsModule,
-<<<<<<< Updated upstream
     ReactiveFormsModule
 
    
     
-=======
-    ReactiveFormsModule,
->>>>>>> Stashed changes
 
  
   ],

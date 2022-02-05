@@ -17,269 +17,170 @@
 
                 <div class="card2 card border-0 px-4 py-5">
                     <div class="row mb-4 px-3">
-                    <h6 class="mb-0 mr-4 mt-2">Regjistrohu</h6>
-                    </div>
-                        
+                        <h5 class="mb-0">Regjistrohu</h5>
+                        </div>
                         <div class="row px-3 mb-4">
-                            <div class="line"> </div>
-                        </div>
-                             
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Emri dhe Mbiemri    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-                        *ngIf="namesurname.invalid && namesurname.touched"> 
-                        <div *ngIf="namesurname.errors.required">Sheno te dhenat</div>
-                        <div *ngIf="namesurname.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
-<<<<<<< Updated upstream
-                        </div>
-                            <input 
-                            type="text"
-                            class="form-control"
-                            name="namesurname"
-                            [(ngModel)]="form.namesurname"                           
-                            minlength="5"
-                            maxlength="20"
-                            #namesurname="ngModel"                                          
-                            placeholder="Sheno Emrin dhe Mbiemri tuaj"
-                            required>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Datelindja    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-                        *ngIf="birthday.invalid && birthday.touched"> 
-                        <div *ngIf="birthday.errors.required">Sheno te dhenat</div>
-                        
-                        </div>
-                            <input 
-                            type="date"
-                            class="form-control"
-                            name="birthday"
-                            [(ngModel)]="form.birthday"                           
-                            #birthday="ngModel"                                          
-                            required>               
-                        </div>
-                            <input 
-                            type="text"
-                            class="form-control"
-                            name="namesurname"
-                            [(ngModel)]="form.namesurname"                           
-                            minlength="5"
-                            maxlength="20"
-                            #namesurname="ngModel"                                          
-                            placeholder="Sheno Emrin dhe Mbiemri tuaj"
-                            required>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Datelindja    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-                        *ngIf="birthday.invalid && birthday.touched"> 
-                        <div *ngIf="birthday.errors.required">Sheno te dhenat</div>
-                        
-                        </div>
-                            <input 
-                            type="date"
-                            class="form-control"
-                            name="birthday"
-                            [(ngModel)]="form.birthday"                           
-                            #birthday="ngModel"                                          
-                            required>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Adressa    
-                            </h6>     
-                            </label>       
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Adressa    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-                        *ngIf="email.invalid && email.touched"> 
-                        <div *ngIf="email.errors.required">Sheno te dhenat</div>
-                        <div *ngIf="email.errors.email">Sheno emailin e sakt</div>
-=======
->>>>>>> Stashed changes
-                        </div>
-                            <input 
-                            type="text"
-                            class="form-control"
-<<<<<<< Updated upstream
-                            name="email"
-                            [(ngModel)]="form.email"                           
-                            #email="ngModel"                                          
-                            placeholder="Sheno emailin tuaj"
-                            required email>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="celulari" class="mb-1">
-                            <h6 class="mb-0 text-sm"> Celulari    
-=======
-                            name="namesurname"
-                            [(ngModel)]="form.namesurname"                           
-                            minlength="5"
-                            maxlength="20"
-                            #namesurname="ngModel"                                          
-                            placeholder="Sheno Emrin dhe Mbiemri tuaj"
-                            required>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Datelindja    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-                        *ngIf="birthday.invalid && birthday.touched"> 
-                        <div *ngIf="birthday.errors.required">Sheno te dhenat</div>
-                        
-                        </div>
-                            <input 
-                            type="date"
-                            class="form-control"
-                            name="birthday"
-                            [(ngModel)]="form.birthday"                           
-                            #birthday="ngModel"                                          
-                            required>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="namesurname" class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Adressa    
->>>>>>> Stashed changes
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
-<<<<<<< Updated upstream
-=======
-                        *ngIf="email.invalid && email.touched"> 
-                        <div *ngIf="email.errors.required">Sheno te dhenat</div>
-                        <div *ngIf="email.errors.email">Sheno emailin e sakt</div>
-                        </div>
-                            <input 
-                            type="text"
-                            class="form-control"
-                            name="email"
-                            [(ngModel)]="form.email"                           
-                            #email="ngModel"                                          
-                            placeholder="Sheno emailin tuaj"
-                            required email>               
-                        </div>
-
-                        <div class=" form-group">
-                            <label for="celulari" class="mb-1">
-                            <h6 class="mb-0 text-sm"> Celulari    
-                            </h6>     
-                            </label>       
-
-                        <div class="d-inline-block"
->>>>>>> Stashed changes
-                        *ngIf="celulari.invalid && celulari.touched"> 
-                        <div *ngIf="celulari.errors.required">Sheno te dhenat</div>
-                        <div *ngIf="celulari.errors.minlength">Duhet te jene gjithsej 9 numra</div>
-                        </div>
-                            <input 
-                            type="text"
-                            (keypress)="keyPressNumbers($event)"
-                            class="form-control"
-                            name="celulari"
-                            [(ngModel)]="form.celulari"                           
-                            minlength="8"
-                            maxlength="9"
-                            [(ngModel)]="numri"
-                            #celulari="ngModel"                                          
-                            placeholder="Shembull: 044 123 123"
-                            required>               
-                        </div>
-                        
-                        <div class=" form-group">
-                            <label for="username" class="mb-1">
-                            <h6 class="mb-0 text-sm">Username  
-                            </h6>     
-                            </label>       
+                        <div class="line"> </div>
+                        </div> 
+                        <!-- Emri Mbiemri -->
+                        <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <div class="d-inline-block"
+                                *ngIf="namesurname.invalid && namesurname.touched"> 
+                                <div *ngIf="namesurname.errors.required">Sheno te dhenat</div>
+                                <div *ngIf="namesurname.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
+                                </div>
+                                
+                                <mat-label>Emri dhe Mbiemri</mat-label> 
+                                <input matInput 
+                                type="text"
+                                name="namesurname"
+                                [(ngModel)]="form.namesurname"                           
+                                minlength="5"
+                                maxlength="20"
+                                #namesurname="ngModel"                                          
+                                placeholder="Sheno Emrin dhe Mbiemri tuaj"
+                                required>
+                              </mat-form-field>   
+                        </div> 
+                         <!-- Datelindja -->
+                        <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="fill">
                             <div class="d-inline-block"
-                            *ngIf="username.invalid && username.touched"> 
-                            <div *ngIf="username.errors.required">Sheno te dhenat</div>
-                            <div *ngIf="username.errors.minlength">Duhet te ket me shume se 3 karaktere</div>
+                            *ngIf="birthday.invalid && birthday.touched"> 
+                            <div *ngIf="birthday.errors.required">Selekto Daten</div>                       
                             </div>
-                            <input 
-                            type="text"
-                            class="form-control"
-                            name="username"
-                            [(ngModel)]="form.username"                           
-                            minlength="3"
-                            maxlength="20"
-                            #username="ngModel"                                          
-                            placeholder="Sheno Emrin e Perdoruesit"
-                            required>               
+                            <mat-label>Datelindja</mat-label> 
+                            <input matInput 
+                            [matDatepicker]="picker"
+                            name="birthday"  
+                            [(ngModel)]="form.birthday" 
+                            #birthday="ngModel" 
+                            
+                            required >
+                            <mat-datepicker-toggle matSuffix  [for]="picker"  >
+                            </mat-datepicker-toggle>
+                            <mat-datepicker touchUi #picker startView="year" [startAt]="startDate">
+                            </mat-datepicker>
+                          </mat-form-field>   
+                        </div> 
+                         <!-- Email -->
+                         <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <div class="d-inline-block"
+                                *ngIf="email.invalid"> 
+                                <div *ngIf="email.errors.email">Sheno Emailin e sakt</div>
+                                </div>
+                                <mat-label>Emaili </mat-label> 
+                                <input matInput 
+                                type="email"
+                                name="email"
+                                [(ngModel)]="form.email"                           
+                                minlength="5"
+                                maxlength="20"
+                                #email="ngModel"                                          
+                                placeholder="Sheno emailin tuaj"
+                                required email>
+                              </mat-form-field>   
+                        </div> 
+                        <!-- Celulari -->
+                        <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <div class="d-inline-block"
+                                *ngIf="celulari.invalid && celulari.touched"> 
+                                <div *ngIf="celulari.errors.required">Sheno te dhenat</div>
+                                <div *ngIf="celulari.errors.minlength">Duhet te jene gjithsej 9 numra</div>
+                                </div>
+                                <mat-label>Celulari</mat-label> 
+                                <input matInput 
+                                type="text"
+                                (keypress)="keyPressNumbers($event)"
+                                name="celulari"
+                                [(ngModel)]="form.celulari"                           
+                                minlength="9"
+                                maxlength="14"
+                                [(ngModel)]="numri"
+                                #celulari="ngModel"                                          
+                                placeholder="Shembull: 044 123 123"
+                                required>
+                              </mat-form-field>   
                         </div>
-                        <div class=" form-group">
-                        <label for="namesurname" class="mb-1">
-                        <h6 class="mb-0 text-sm">Password  
-                        </h6>     
-                        </label>       
+                        <!-- Emri Perdoruesit / USeri -->
+                        <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <div class="d-inline-block"
+                                *ngIf="username.invalid && username.touched"> 
+                                <div *ngIf="username.errors.required">Sheno te dhenat</div>
+                                <div *ngIf="username.errors.minlength">Duhet te ket me shume se 3 karaktere</div>
+                                </div>
+                                <mat-label>Emri Perdoruesit</mat-label> 
+                                <input matInput 
+                                type="text"
+                                name="username"
+                                [(ngModel)]="form.username"                           
+                                minlength="3"
+                                maxlength="20"
+                                #username="ngModel"                                          
+                                placeholder="Sheno Emrin e Perdoruesit"
+                                required>
+                              </mat-form-field>   
+                        </div>
+                        <!-- Fjalekalimi -->
+                        <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <div class="d-inline-block"
+                                *ngIf="password.invalid && password.touched"> 
+                                <div *ngIf="password.errors.required">Sheno te dhenat</div>
+                                <div *ngIf="password.errors.minlength">Duhet te ket me shum se 6 karaktere</div>
+                                </div>
+                           
+                                <mat-label>Fjalekalimi</mat-label> 
+                                <input matInput 
+                                type="password"
+                                name="password"
+                                [(ngModel)]="form.password"                           
+                                minlength="6"
+                                maxlength="30"
+                                #password="ngModel"                                          
+                                placeholder="Sheno Fjalekalimin"
+                                required >
+                              </mat-form-field>   
+                        </div>
 
-                    <div class="d-inline-block"
-                    *ngIf="password.invalid && password.touched"> 
-                    <div *ngIf="password.errors.required">Sheno te dhenat</div>
-                    <div *ngIf="password.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
-                    </div>
-                        <input 
-                        type="password"
-                        class="form-control"
-                        name="password"
-                        [(ngModel)]="form.password"                           
-                        minlength="6"
-                        maxlength="20"
-                        #password="ngModel"                                          
-                        placeholder="Sheno Fjalekalimi"
-                        required >               
-                    </div>
-
+                       
+                      
+                        <div class="custom-control custom-checkbox custom-control-inline"> 
+                            <input id="chk1" type="checkbox" name="kushtet"
+                            [(ngModel)]="form.kushtet"
+                            #kushtet="ngModel"
+                            class="custom-control-input" required> <label for="chk1" class="custom-control-label text-xl">Pajtohuni me Termat dhe Kushtet</label>&nbsp;&nbsp; <a href="#" class="linki"> Lexo Rregullat</a>
+                       
+                        <br><br>
+                    
+                        </div>
+                        <div class="d-inline-block"
+                        *ngIf="f.submitted && kushtet.invalid "> 
+                        <div *ngIf="kushtet.errors.required">Duhet qe te pajtoheni me rregullat per tu regjistruar</div>
+                        </div>
+                        <br>
                         <div class="row mb-3 px-3">
-                        <button class="btn btn-blue text-center">Regjistrohu</button> </div>
+                        <br>
+                        <button class="btn btn-blue text-center">Regjistrohu</button> 
+                        </div>
                         
-                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-<<<<<<< Updated upstream
-                        Regjistrimi Deshtoi!<br />
+                        <div class="alert alert-warning" 
+                        *ngIf="f.submitted && isSignUpFailed">
+                        Regjistrimi Deshtoi!
+                        <br />
                         {{ errorMessage }}        
                         </div>
                    
                         
-=======
-                        Signup failed!<br />
-                        {{ errorMessage }}
-                        </div>
-
-                        <div class="alert alert-success" *ngIf="isSuccessful">
-                            Your registration is successful!
-                          </div>
->>>>>>> Stashed changes
-                            
                     </div>
+                
                 </form>
                 <div *ngIf="isSuccessful" (click)="openSnackBar()">
-                  </div>
+                </div>
               
             </div>
         </div>

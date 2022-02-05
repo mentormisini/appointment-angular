@@ -1,3 +1,4 @@
+
 <div class="col-lg-6"></div>
 <div class="container-fluid mx-auto">
     <div class="card card0 border-0">
@@ -11,100 +12,75 @@
             <!--Forma-->
             <div class="col-lg-6">
                 <form 
-<<<<<<< Updated upstream
                 name="form"    
-=======
-                name="form" 
-                [formGroup]="loginForm" 
->>>>>>> Stashed changes
                 *ngIf="!isLoggedIn"                 
                 (ngSubmit)="f.form.valid && onSubmit()" 
                 #f="ngForm" 
                 novalidate>
                     <div class="card2 card border-0 px-4 py-5">
                         <div class="row mb-4 px-3">
-                        <h6 class="mb-0 mr-4 mt-2">Logohu</h6>
+                        <h5 class="mb-0">Logohu</h5>
                         </div>
                         <div class="row px-3 mb-4">
                         <div class="line"></div>
                         </div>
-                        <div class="row px-3 form-group">
-                            <label for="username" class="mb-1">
-                            <h6 class="mb-0 text-sm">Emri Perdoruesit                       
-                            </h6>  
-                        </label>
 
-                      
-                            <input class="mb-4 form-control"
-                            type="text" 
-                            minlength="2"
-                            name="username" 
-                            [(ngModel)]="form.username"
-                            #username="ngModel"               
-                            placeholder="Sheno Emrin e Perdoruesit"   
-                            required>
+                        <div class="row px-3 form-group">
+                        <div class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Emri Perdoruesit</mat-label>
+                                <input matInput 
+                                type="text" 
+                                minlength="2"
+                                name="username" 
+                                [(ngModel)]="form.username"
+                                #username="ngModel"               
+                                placeholder="Sheno Emrin e Perdoruesit"   
+                                required>
+                              </mat-form-field>
+                        </div> 
                         </div>
                         
                         <div class="row px-3 form-group"> 
-
-                            <label class="mb-1">                      
-<<<<<<< Updated upstream
-                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>                             
-                            </label> 
-                           
-=======
-                            <h6 class="mb-0 text-sm">Fjalekalimi</h6>                         
-                            <span class="error" 
-                            *ngIf="loginForm.get('password').invalid" 
-                            [(ngModel)]="startyping">
-                            </span>
-                            </label> 
-
->>>>>>> Stashed changes
-                            <input 
-                            type="password"
-                            class="form-control"
-                            name="password"
-                            [(ngModel)]="form.password"
-<<<<<<< Updated upstream
-                            required minlength="6"                           
-                            placeholder="Sheno Fjalkalimin"
-                            >
-                            
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Fjalekalimi</mat-label>
+                                    <input matInput 
+                                    type="password"
+                                   
+                                    name="password"
+                                    [(ngModel)]="form.password"
+                                    required minlength="6"                           
+                                    placeholder="Sheno Fjalkalimin">
+                                  </mat-form-field>
+                            </div>
                         </div>  
                         
-                                     
                           <div 
                            role="alert" 
                            *ngIf="f.submitted && isLoginFailed" 
                            (click)="handleClear()"   
                            >
-=======
-                            required minlength="6"
-                            placeholder="Enter password">
-                        </div>                 
-                          <div class="alert alert-danger"
-                           role="alert"
-                           *ngIf="f.submitted && isLoginFailed">
->>>>>>> Stashed changes
                             {{ errorMessage }}                      
                           </div>
                         
                         <div class="row px-3 mb-4">
-                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Mbajem mend</label> </div> <a href="#" routerLink="/forgotpassword" class="ml-auto mb-0 text-sm">Kam harruar Fjalekalimin?</a>
+                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-xl">Mbajem mend</label> </div> <a href="#" routerLink="/forgotpassword" class="ml-auto mb-0 text-xl">Kam harruar Fjalekalimin?</a>
                         </div>
+                        
                         <div class="row mb-3 px-3">
-<<<<<<< Updated upstream
-                            <button type="submit" class="btn btn-blue text-center"
-                            [disabled]="!f.form.valid"
-                            >Kycu</button> </div>
+                            <button type="submit"
+                            class="btn btn-blue text-center"
+                            [disabled]="!f.form.valid">
+                            Kycu
+                            </button>
+                            </div>
 
-=======
-                            <button type="submit" class="btn btn-blue text-center" [disabled]="loginForm.invalid" >Kycu</button> </div>
->>>>>>> Stashed changes
-                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Nuk keni llogari? <a href="#" routerLink="/register-user" class="text-danger ">Regjistrohu</a></small> </div>
+                        <div class="row mb-4 px-3"> <label>Nuk keni llogari? 
+                        <a href="#" routerLink="/register-user" class="text-success ">
+                        <b> Regjistrohu</b></a></label> 
+                        </div>
                     </div>
-                   
                 </form>
             </div>
         </div>

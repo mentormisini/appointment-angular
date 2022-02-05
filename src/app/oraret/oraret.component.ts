@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OraretService } from '../_services/oraret.service';
 import { Injectable } from '@angular/core';
@@ -11,17 +10,12 @@ import { StepperOrientation } from '@angular/cdk/stepper';
 import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
-=======
-import { OraretService } from '../_services/oraret.service';
-
->>>>>>> Stashed changes
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
   styleUrls: ['./oraret.component.css']
 })
 export class OraretComponent implements OnInit {
-<<<<<<< Updated upstream
   toppings = new FormControl();
   selected:Date;
   oraret: string[] = [];
@@ -34,14 +28,13 @@ export class OraretComponent implements OnInit {
   isSuccessful = false;
   isFailed = false;
   errorMessage:string;
-  form: any = {};
 
-  
   constructor(private oraretService: OraretService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
      private authService: AuthService) {}
+
      openSnackBar() {
       this._snackBar.open('Zgjedheni Daten pastaj oren','X', {
         duration: this.kohapritjes * 1000,
@@ -91,41 +84,4 @@ export class OraretComponent implements OnInit {
     console.log(response);
   }
 
-  onSubmit() {
-    this.authService.regjistroTerminet(this.form).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isFailed = false;
-        
-        
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isFailed = true;
-      }
-    );
-  }
-
-
-
-=======
-
-  oraret: string[] = [];
-  constructor(private oraretService: OraretService) { this.getOraret()}
-
-  ngOnInit(): void {
-  }
-
-  getOraret(): void{
-    this.oraretService.getOraret().subscribe(
-      response => this.shfaqeOraret(response));
-  
-  }
-
-  shfaqeOraret(response){
-    this.oraret = response;
-    console.log(this.oraret);
-  }
->>>>>>> Stashed changes
 }

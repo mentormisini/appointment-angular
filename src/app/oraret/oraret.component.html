@@ -1,14 +1,9 @@
-<<<<<<< Updated upstream
 <div class="container">
     <div class="col-xs-12">
     <mat-horizontal-stepper #stepper>
       <!-- stepp1 -->
       <mat-step [stepControl]="firstFormGroup">
               <form
-                name="form"
-                *ngIf="!isSuccessful"
-                (ngSubmit)="f.form.valid && onSubmit()"
-                #f="ngForm" 
                [formGroup]="firstFormGroup" novalidate>
                 <div class="container-fluid mx-auto">
                   <div class="card card0 border-0">
@@ -90,8 +85,8 @@
                     <div class="card1 pb-5">
                       <br>
                         <div class="row px-3 justify-content-center border-line">
-                        <mat-card class="demo-inline-calendar-card">
-                        <mat-calendar (click)="onClickDate()" [(selected)]="selected"></mat-calendar>
+                        <mat-card class="demo-inline-calendar-card" >
+                        <mat-calendar  (click)="onClickDate()" [(selected)]="selected" ></mat-calendar>
                       </mat-card>
                     </div>
                     </div>
@@ -102,17 +97,13 @@
                       <div class="row px-3 justify-content-center">
                       <ng-template matStepLabel>Hapi 2</ng-template>
                                          
-                      <mat-form-field appearance="fill"
-                      
-                      class="demo-inline-calendar-card"  >
-                                        
+                      <mat-form-field appearance="fill"                      
+                      class="demo-inline-calendar-card">            
                       <mat-label>Zgjedhe orarin</mat-label>
                         <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur">
-                          <mat-select-trigger >
-                            {{toppings.value}}             
-                          </mat-select-trigger>
+                        
                           <mat-option *ngFor="let topping of oraret"
-                           [value]="topping" >
+                           [value]="topping">
                             {{topping}}
                           </mat-option >
                         </mat-select> 
@@ -204,7 +195,7 @@
                         <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Numri Celularit</mat-label>
-                            <input type="number"  #nr (keyup)="0" matInput formControlName="numri">
+                            <input type="text"  #nr  matInput formControlName="numri">
                           </mat-form-field></td>
                         </tr>             
                       </table>
@@ -212,7 +203,7 @@
                         
                        
                         <div>
-                          <button name="rezervo" class="btn btn-blue text-center" matStepperNext (click)="submit()">Rezervo Terminin</button>
+                          <button name="rezervo" type="submit" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button>
                         </div>	
                     </div>
                     </div>
@@ -246,7 +237,3 @@
 
 
 
-=======
-<p>oraret works!</p>
-<h1>aaaaaa</h1>
->>>>>>> Stashed changes

@@ -7,3 +7,39 @@ body { padding-top: 100px; }
   #content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
   }
+  .btn-blue  {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px;
+    padding: 8px;
+}
+  
+.btn-blue:hover {
+  background-color: rgb(36, 38, 168);
+  cursor: pointer;
+  color:white;
+}
+.btn-brown {
+  background-color: #353646;
+  width: 150px;
+  color: #fff;
+  border-radius: 2px;
+  padding: 8px;
+}
+.btn-brown:hover {
+  background-color: #4a4b63;
+  color:white;
+}
+.d-inline-block{
+  font-weight: 500;
+  font-size:14px;
+  color:red;
+  float:right;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+
+}

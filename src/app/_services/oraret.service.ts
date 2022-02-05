@@ -1,20 +1,14 @@
-<<<<<<< Updated upstream
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 const AUTH_API = 'http://localhost:8080/terminet/krijo-termin';
-=======
->>>>>>> Stashed changes
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+
 
 export class OraretBean{
 
@@ -27,7 +21,6 @@ export class OraretBean{
   providedIn: 'root'
 })
 export class OraretService {
-<<<<<<< Updated upstream
   
 
   constructor(private http: HttpClient) { }
@@ -48,18 +41,10 @@ export class OraretService {
       ora: terminiRequest2.orarizgjedhur,
       numri: terminiRequest1.numri,
       sherbimi: terminRequst3.sherbimiZgjedhur,
-      puntori: terminRequst3.puntoriZgjedhur,
+      puntori: terminRequst3.puntoriZgjedhur
       //data: terminiRequest2.dataZgjedhur
 
     }, httpOptions);
 
-=======
->>>>>>> Stashed changes
-
-  constructor(private http: HttpClient) { }
-
-  getOraret() {
-    return this.http.get<OraretBean>('http://localhost:8080/api/auth/terminet-lira');
-  
   }
 }

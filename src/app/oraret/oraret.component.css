@@ -128,23 +128,14 @@
     cursor: pointer
   }
   
-  .btn-blue {
-    background-color: #1A237E;
-    width: 150px;
-    color: #fff;
-    border-radius: 2px
-  }
-  .btn-brown {
-    background-color: #353646;
-    width: 150px;
-    color: #fff;
-    border-radius: 2px
-  }
+ 
+  
   
   
   .btn-blue:hover {
-    background-color: #000;
-    cursor: pointer
+    background-color: rgb(36, 38, 168);
+    cursor: pointer;
+    color:white;
   }
   
   .bg-blue {
@@ -185,5 +176,4 @@ color:#000;
 ::ng-deep.mat-step-label-selected{
   color:#1A237E !important;
  
-
 }
