@@ -10,6 +10,7 @@ import { StepperOrientation } from '@angular/cdk/stepper';
 import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -28,12 +29,16 @@ export class OraretComponent implements OnInit {
   isSuccessful = false;
   isFailed = false;
   errorMessage:string;
+  typeSelected:string;
 
   constructor(private oraretService: OraretService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
-     private authService: AuthService) {}
+     private authService: AuthService,
+     public spinnerService:NgxSpinnerService) {
+      this.typeSelected = 'timer';
+     }
 
      openSnackBar() {
       this._snackBar.open('Zgjedheni Daten pastaj oren','X', {
@@ -54,18 +59,25 @@ export class OraretComponent implements OnInit {
       emri: ['', Validators.required],
       mbiemri: ['', Validators.required],
       email: ['', Validators.required, Validators.email],
-      numri: ['', Validators.required, Validators.pattern('[- +()0-9]+')
+      numri: ['', Validators.required, Validators.pattern('^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$')
     ]
     
     });
   
+    
     // this.oraretService.getOraret().subscribe(
     //   response => this.oraret = response.oraret);
   }
+  numericOnly(event): boolean {    
+    let patt = /^([0-9])$/;
+    let result = patt.test(event.key);
+    return result;
+}
   onClickDate(){
     this.oraret = [];
     console.log(this.datepipe.transform(this.selected,'yyyy-MM-dd'));
     this.getOraret(this.selected);
+    this.showSpinner();//shfaqe preloaderin
   }
 
 
@@ -84,4 +96,11 @@ export class OraretComponent implements OnInit {
     console.log(response);
   }
 
+  public showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); //1 sekond
+  }
 }

@@ -43,3 +43,7 @@ body { padding-top: 100px; }
   width: 100%;
 
 }
+.preloader{
+  left: 50%;
+  margin-left: -4em;
+}

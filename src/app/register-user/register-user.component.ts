@@ -14,7 +14,7 @@ export class RegisterUserComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   numri='04';
-  kohapritjes=7;
+  kohapritjes=5;
   startDate = new Date(1990, 0, 1);
   constructor(private authService: AuthService,
      private router: Router,
@@ -57,7 +57,6 @@ export class RegisterUserComponent implements OnInit {
       return false;
     } else {
       return true;
-    
     }
   }
   ngOnInit(): void {

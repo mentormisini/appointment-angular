@@ -1,3 +1,5 @@
+
+
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
@@ -53,9 +55,7 @@
     width: 100%;
   }
   
-  .border-line {
-    border-right: 1px solid #EEEEEE
-  }
+ 
   
   .line {
     height: 1px;
@@ -131,12 +131,7 @@
  
   
   
-  
-  .btn-blue:hover {
-    background-color: rgb(36, 38, 168);
-    cursor: pointer;
-    color:white;
-  }
+
   
   .bg-blue {
    
@@ -152,7 +147,9 @@
         height: 220px
     }
     .border-line {
-        border-right: none
+        border-right: none;
+        display: none;
+        
     }
     .card2 {
         border-top: 1px solid #EEEEEE !important;

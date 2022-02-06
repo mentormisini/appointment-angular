@@ -1,7 +1,13 @@
-<div class="container">
+
+
+<div class="container position-relative" >
+  <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
+    <p style="color:#081540" >Po ngarkohet</p>
+  </ngx-spinner>
     <div class="col-xs-12">
+    
     <mat-horizontal-stepper #stepper>
-      <!-- stepp1 -->
+      <!-- stepp1 -->  
       <mat-step [stepControl]="firstFormGroup">
               <form
                [formGroup]="firstFormGroup" novalidate>
@@ -128,7 +134,7 @@
 
     <!-- stepp3 -->
     <mat-step [stepControl]="thirdFormGroup" >
-      <form [formGroup]="thirdFormGroup" >
+      <form [formGroup]="thirdFormGroup"  >
         <div class="container-fluid mx-auto">
           <div class="card card0 border-0">
               <div class="row d-flex">
@@ -176,26 +182,43 @@
                         <table class="example-full-width" cellspacing="0"><tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
-                            <input type="text" #emri matInput formControlName="emri" required>
+                            <input type="text" 
+                            minlength="3"
+                             maxlength="15"
+                             #emri matInput formControlName="emri"
+                             required>
                           </mat-form-field></td>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mbiemri</mat-label>
-                            <input type="text" #mbiemri formControlName="mbiemri" matInput required>
+                            <input type="text"                        
+                             formControlName="mbiemri"
+                             minlength="3"
+                             maxlength="15"
+                             #mbiemri
+                              matInput required>
                           </mat-form-field></td>
                         </tr></table>
+                   
 
                         <table class="example-full-width" aria-colspan="2">
                           <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Email Adresa </mat-label>
-                            <input type="email" #email formControlName="email" matInput required>
+                            <input type="email" #email
+                            minlength="5"
+                            maxlength="35" formControlName="email" matInput required>
                           </mat-form-field></td>
                         </tr>
 
                         <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Numri Celularit</mat-label>
-                            <input type="text"  #nr  matInput formControlName="numri">
+                            <input type="text"  #nr placeholder="+383 / + 386"
+                            minlength="5"
+                            maxlength="15"
+                            value="+3"
+                            matInput (keypress)="numericOnly($event)"
+                           >
                           </mat-form-field></td>
                         </tr>             
                       </table>
@@ -203,6 +226,7 @@
                         
                        
                         <div>
+                          <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
                           <button name="rezervo" type="submit" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button>
                         </div>	
                     </div>
@@ -230,9 +254,11 @@
               </div>  
             </mat-step>
           </mat-horizontal-stepper>
+         
     </div>
 </div>
 <br>
+
 
 
 

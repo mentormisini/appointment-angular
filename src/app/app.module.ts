@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -25,7 +25,7 @@ import { MaterialModule } from './material.module';
 import { OraretComponent } from './oraret/oraret.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DatePipe } from '@angular/common';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -63,7 +63,8 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgxSpinnerModule
    
    
 
@@ -74,7 +75,8 @@ import { DatePipe } from '@angular/common';
     
   ],
   providers: [authInterceptorProviders, DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 
 })
 
