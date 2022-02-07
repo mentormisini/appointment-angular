@@ -114,6 +114,6 @@ export class OraretComponent implements OnInit {
 
     setTimeout(() => {
       this.spinnerService.hide();
-    }, 1000); //1 sekond
+    }, 1000); //1 sekond i shfaqur
   }
 }
