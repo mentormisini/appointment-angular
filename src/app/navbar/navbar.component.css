@@ -54,3 +54,20 @@
     /*change color of underline*/
     width: 100% !important;
 }
+
+@media screen and (max-width: 991px) {
+    .navbar {
+        padding: 20px;
+        height: 90px;
+        box-shadow: rgb(231, 222, 222) 1px 1px 1px 1px;
+    }
+    .navbar-collapse{
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        background-color: whitesmoke;
+        margin-top:16px;
+        width: 100%;
+    }
+    
+}

@@ -130,7 +130,10 @@
   
  
   
-  
+  .border-line {
+    border-right: 1px solid #dadada;  
+    height: 100%;
+  }
 
   
   .bg-blue {
@@ -146,11 +149,7 @@
         width: 300px;
         height: 220px
     }
-    .border-line {
-        border-right: none;
-        display: none;
-        
-    }
+  
     .card2 {
         border-top: 1px solid #EEEEEE !important;
         margin: 0px 15px

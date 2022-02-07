@@ -16,6 +16,7 @@ export class RegisterUserComponent implements OnInit {
   numri='04';
   kohapritjes=5;
   startDate = new Date(1990, 0, 1);
+  
   constructor(private authService: AuthService,
      private router: Router,
      private _snackBar:MatSnackBar) { }

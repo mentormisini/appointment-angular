@@ -9,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-public isCollapsed=false;
+public isCollapsed=false; //hamburger icona
 typeSelected:string;
   constructor(private spinnerService: NgxSpinnerService) { 
     this.typeSelected = 'timer';
@@ -19,7 +19,7 @@ typeSelected:string;
 
     setTimeout(() => {
       this.spinnerService.hide();
-    }, 1000); // 5 seconds
+    }, 1000); //1 sekond
   }
   
   ngOnInit(): void {

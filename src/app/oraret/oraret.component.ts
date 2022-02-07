@@ -11,6 +11,7 @@ import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -58,7 +59,7 @@ export class OraretComponent implements OnInit {
     this.thirdFormGroup = this._formBuilder.group({
       emri: ['', Validators.required],
       mbiemri: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
+      email: ['', Validators.required],
       numri: ['', Validators.required, Validators.pattern('^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$')
     ]
     
@@ -93,9 +94,21 @@ export class OraretComponent implements OnInit {
        this.oraret.push(element[0])
     });
    // this.oraret = response;
+  
     console.log(response);
   }
 
+  submit(){
+    this.oraretService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
+      data => {console.log("weeeeeeeeeeeeeeeeee");
+      }
+    );
+    console.log("submit form");
+    console.log("oraaaaa" + this.secondFormGroup.value)
+    console.log(this.firstFormGroup.getRawValue);
+    console.log(this.secondFormGroup.value);
+    console.log("emriiiii" + this.thirdFormGroup.value);
+}
   public showSpinner(): void {
     this.spinnerService.show();
 

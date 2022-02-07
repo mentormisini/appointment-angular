@@ -1,13 +1,18 @@
 
 
 <div class="container position-relative" >
+  <!--marr nga linku https://napster2210.github.io/ngx-spinner/-->
+  
   <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
     <p style="color:#081540" >Po ngarkohet</p>
   </ngx-spinner>
+
+  <!--Preloader i lokalizuar vetem ne komponent ( tek oraret ) -->
     <div class="col-xs-12">
     
     <mat-horizontal-stepper #stepper>
       <!-- stepp1 -->  
+      
       <mat-step [stepControl]="firstFormGroup">
               <form
                [formGroup]="firstFormGroup" novalidate>
@@ -91,7 +96,7 @@
                     <div class="card1 pb-5">
                       <br>
                         <div class="row px-3 justify-content-center border-line">
-                        <mat-card class="demo-inline-calendar-card" >
+                        <mat-card width="300px" class="demo-inline-calendar-card" >
                         <mat-calendar  (click)="onClickDate()" [(selected)]="selected" ></mat-calendar>
                       </mat-card>
                     </div>
@@ -204,7 +209,8 @@
                           <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Email Adresa </mat-label>
-                            <input type="email" #email
+                            <input type="email" 
+                            #email
                             minlength="5"
                             maxlength="35" formControlName="email" matInput required>
                           </mat-form-field></td>
@@ -249,7 +255,7 @@
               <br>
               <h4>Termini u realizua me sukses </h4>
               <hr>
-              <button mat-button class="btn btn-blue imgcenter" (click)="stepper.reset()">Rezervo Perseri</button>            
+              <button  class="btn btn-blue imgcenter" (click)="stepper.reset()">Rezervo Perseri</button>            
               </div>    
               </div>  
             </mat-step>
@@ -257,7 +263,7 @@
          
     </div>
 </div>
-<br>
+
 
 
 
