@@ -1,18 +1,16 @@
-
-
-<div class="container position-relative" >
+<div class="container position-relative" xmlns="http://www.w3.org/1999/html">
   <!--marr nga linku https://napster2210.github.io/ngx-spinner/-->
-  
+
   <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
     <p style="color:#081540" >Po ngarkohet</p>
   </ngx-spinner>
 
   <!--Preloader i lokalizuar vetem ne komponent ( tek oraret ) -->
     <div class="col-xs-12">
-    
+
     <mat-horizontal-stepper #stepper>
-      <!-- stepp1 -->  
-      
+      <!-- stepp1 -->
+
       <mat-step [stepControl]="firstFormGroup">
               <form
                [formGroup]="firstFormGroup" novalidate>
@@ -37,7 +35,7 @@
                               </div>
                               </div>
                           </div>
-                
+
                           <div class="col-lg-6">
                             <div class="card1 pb-5">
                                 <div class="row px-3 justify-content-center">
@@ -49,38 +47,38 @@
                                   [(ngModel)]="selektori">
 
                                     <mat-select-trigger>
-                                      {{toppings.value}}             
+                                      {{toppings.value}}
                                     </mat-select-trigger>
 
                                     <mat-option
-                                    *ngFor="let topping of oraret" 
+                                    *ngFor="let topping of sherbimet"
                                     [value]="topping">
                                       {{topping}}
                                     </mat-option >
 
-                                  </mat-select> 
+                                  </mat-select>
                                 </mat-form-field>
-                                
+
                                 <mat-form-field appearance="fill" class="demo-inline-calendar-card">
                                   <mat-label>Zgjedhe Punetorin</mat-label>
                                     <mat-select  [(ngModel)]="selektori" formControlName="puntoriZgjedhur">
                                       <mat-select-trigger>
-                                        {{toppings.value}}             
+                                        {{toppings.value}}
                                       </mat-select-trigger>
-                                      <mat-option *ngFor="let topping of oraret" 
+                                      <mat-option *ngFor="let topping of oraret"
                                       [value]="topping" >
                                         {{topping}}
                                       </mat-option >
-                                    </mat-select> 
+                                    </mat-select>
                                   </mat-form-field>
                                 <div>
                                   <button class="btn btn-blue text-center" matStepperNext [disabled]="selektori" (click)="openSnackBar()">Vazhdo</button>
-                                </div>	
+                                </div>
                             </div>
                             </div>
-                            </div>  
+                            </div>
                           </div>
-                      </div>               
+                      </div>
                   </div>
               </form>
             </mat-step>
@@ -96,39 +94,49 @@
                     <div class="card1 pb-5">
                       <br>
                         <div class="row px-3 justify-content-center border-line">
-                        <mat-card width="300px" class="demo-inline-calendar-card" >
-                        <mat-calendar  (click)="onClickDate()" [(selected)]="selected" ></mat-calendar>
+                        <mat-card  class="demo-inline-calendar-card" >
+                        <mat-calendar (click)="onClickDate()"
+                                      [(selected)]="dataZgjedhur"
+                                      >
+                        </mat-calendar>
+
+
+                          <input type="hidden"
+                                 formControlName="dataZgjedhur"
+                                 ngModel="{{dataZgjedhur|date:'yyyy-MM-dd'}}" disabled>
                       </mat-card>
+
+
                     </div>
                     </div>
                 </div>
-             
+
                 <div class="col-lg-6">
                   <div class="card1 pb-5">
                       <div class="row px-3 justify-content-center">
                       <ng-template matStepLabel>Hapi 2</ng-template>
-                                         
-                      <mat-form-field appearance="fill"                      
-                      class="demo-inline-calendar-card">            
+
+                      <mat-form-field appearance="fill"
+                      class="demo-inline-calendar-card">
                       <mat-label>Zgjedhe orarin</mat-label>
                         <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur">
-                        
+
                           <mat-option *ngFor="let topping of oraret"
                            [value]="topping">
                             {{topping}}
                           </mat-option >
-                        </mat-select> 
+                        </mat-select>
                       </mat-form-field>
-      
-                      <div> 
+
+                      <div>
                         <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
-                      </div>	
+                      </div>
                         <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
                   </div>
                   </div>
-                  </div>  
+                  </div>
                 </div>
-            </div>               
+            </div>
         </div>
     </form>
   </mat-step>
@@ -151,22 +159,22 @@
                               <h4 class="alert-heading">Pothuajse Gati</h4>
                               <hr>
                               <p>Ploteso te dhenat tuaja, Konfrimo ato dhe shtyp butonin rezervo</p>
-                              
+
                             <b>Sherbimi</b>
                             <br>
                             <b>Punetori</b>
                             <br>
                             <b>Data dhe ora:</b>
                             <b class="detajet">
-                            {{selected| date : 'dd-MM-yyyy'}}  {{selektori}}
+                            {{dataZgjedhur| date : 'dd-MM-yyyy'}}  {{selektori}}
                             </b>
                             <br>
                             <b>Emri dhe Mbiemri</b>
                             <b class="detajet"> {{emri.value}} {{mbiemri.value}}  </b>
-                            
+
                             <br>
                             <b>Emaili:</b>
-                            <b class="detajet"> 
+                            <b class="detajet">
                             {{email.value}}
                             </b>
                             <br>
@@ -178,7 +186,7 @@
                       </div>
                       </div>
                   </div>
-        
+
                   <div class="col-lg-6">
                     <div class="card1 pb-5">
                         <div class="row px-3 justify-content-center">
@@ -187,7 +195,7 @@
                         <table class="example-full-width" cellspacing="0"><tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
-                            <input type="text" 
+                            <input type="text"
                             minlength="3"
                              maxlength="15"
                              #emri matInput formControlName="emri"
@@ -195,7 +203,7 @@
                           </mat-form-field></td>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mbiemri</mat-label>
-                            <input type="text"                        
+                            <input type="text"
                              formControlName="mbiemri"
                              minlength="3"
                              maxlength="15"
@@ -203,13 +211,13 @@
                               matInput required>
                           </mat-form-field></td>
                         </tr></table>
-                   
+
 
                         <table class="example-full-width" aria-colspan="2">
                           <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Email Adresa </mat-label>
-                            <input type="email" 
+                            <input type="email"
                             #email
                             minlength="5"
                             maxlength="35" formControlName="email" matInput required>
@@ -222,31 +230,31 @@
                             <input type="text"  #nr placeholder="+383 / + 386"
                             minlength="5"
                             maxlength="15"
-                            value="+3"
+                            formControlName="numri"
                             matInput (keypress)="numericOnly($event)"
                            >
                           </mat-form-field></td>
-                        </tr>             
+                        </tr>
                       </table>
-                        
-                        
-                       
+
+
+
                         <div>
                           <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
                           <button name="rezervo" type="submit" (click)="submit()" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button>
-                        </div>	
+                        </div>
                     </div>
                     </div>
-                    </div>  
+                    </div>
                   </div>
-              </div>               
+              </div>
           </div>
       </form>
     </mat-step>
     <!--STEPP3 END-->
             <mat-step>
               <ng-template matStepLabel>Realizuar</ng-template>
-            
+
               <br> <br>
               <div class="row px-3 justify-content-center border-line">
                 <div class="alert alert-primiary" role="alert">
@@ -255,12 +263,12 @@
               <br>
               <h4>Termini u realizua me sukses </h4>
               <hr>
-              <button  class="btn btn-blue imgcenter" (click)="stepper.reset()">Rezervo Perseri</button>            
-              </div>    
-              </div>  
+              <button  class="btn btn-blue imgcenter" (click)="stepper.reset()">Rezervo Perseri</button>
+              </div>
+              </div>
             </mat-step>
           </mat-horizontal-stepper>
-         
+
     </div>
 </div>
 

@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
 @Component({
   selector: 'app-oraret',
   templateUrl: './oraret.component.html',
@@ -19,8 +20,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class OraretComponent implements OnInit {
   toppings = new FormControl();
-  selected:Date;
+  dataZgjedhur:Date;
   oraret: string[] = [];
+  sherbimet: string[] = [];
   firstFormGroup:FormGroup;
   secondFormGroup:FormGroup;
   thirdFormGroup:FormGroup;
@@ -32,13 +34,15 @@ export class OraretComponent implements OnInit {
   errorMessage:string;
   typeSelected:string;
 
+
   constructor(private oraretService: OraretService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
      private authService: AuthService,
      public spinnerService:NgxSpinnerService) {
-      this.typeSelected = 'timer';
+    this.typeSelected = 'timer'
+
      }
 
      openSnackBar() {
@@ -46,7 +50,7 @@ export class OraretComponent implements OnInit {
         duration: this.kohapritjes * 1000,
       });
     }
-  
+
     ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
       sherbimiZgjedhur : [Validators.required],
@@ -54,38 +58,43 @@ export class OraretComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       orarizgjedhur: ['', Validators.required],
-     // dataZgjedhur: ['', Validators.required]
+      dataZgjedhur: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
       emri: ['', Validators.required],
       mbiemri: ['', Validators.required],
       email: ['', Validators.required],
-      numri: ['', Validators.required, Validators.pattern('^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$')
-    ]
-    
+      numri: ['', Validators.required,]
     });
-  
-    
+
+
     // this.oraretService.getOraret().subscribe(
     //   response => this.oraret = response.oraret);
   }
-  numericOnly(event): boolean {    
+  numericOnly(event): boolean {
     let patt = /^([0-9])$/;
     let result = patt.test(event.key);
     return result;
 }
   onClickDate(){
     this.oraret = [];
-    console.log(this.datepipe.transform(this.selected,'yyyy-MM-dd'));
-    this.getOraret(this.selected);
+    console.log(this.datepipe.transform(this.dataZgjedhur,'yyyy-MM-dd'));
+    this.getOraret(this.dataZgjedhur);
+
     this.showSpinner();//shfaqe preloaderin
   }
 
 
+
   getOraret(selectedDate: Date){
-    let latest_date =this.datepipe.transform(this.selected, 'yyyy-MM-dd');
+    let latest_date =this.datepipe.transform(this.dataZgjedhur, 'yyyy-MM-dd');
+
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
+  }
+  getSherbimet(){
+    this.oraretService.getSherbimet().subscribe(
+      respon=>this.shfaqSherbimet(respon));
   }
 
   shfaqeOraret(response){
@@ -93,9 +102,12 @@ export class OraretComponent implements OnInit {
     response.forEach(element => {
        this.oraret.push(element[0])
     });
-   // this.oraret = response;
-  
     console.log(response);
+  }
+  shfaqSherbimet(response){
+    response.forEach(element=>{
+      this.sherbimet.push(element[0])
+    });
   }
 
   submit(){
