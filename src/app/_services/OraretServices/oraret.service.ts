@@ -31,13 +31,6 @@ export class OraretService {
     data));
   }
 
-  getSherbimet(){
-    return (this.http.get(`http://localhost:8080/terminet/shfaq-sherbimet`,httpOptions))
-      .pipe(map((data:any)=> {
-        return data;
-      }));
-  }
-
 
   postTermin(terminRequst3, terminiRequest1, terminiRequest2): Observable<any>{
     console.log("ora" + terminiRequest2.orarizgjedhur)

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { OraretService } from '../_services/oraret.service';
+import { OraretService } from '../_services/OraretServices/oraret.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,6 +11,9 @@ import { DatePipe, formatDate } from '@angular/common'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {SherbimetService} from '../_services/OraretServices/sherbimet.service';
+import {element} from 'protractor';
+
 
 
 @Component({
@@ -22,7 +25,7 @@ export class OraretComponent implements OnInit {
   toppings = new FormControl();
   dataZgjedhur:Date;
   oraret: string[] = [];
-  sherbimet: string[] = [];
+  sherbimi:string[]=[];
   firstFormGroup:FormGroup;
   secondFormGroup:FormGroup;
   thirdFormGroup:FormGroup;
@@ -36,12 +39,13 @@ export class OraretComponent implements OnInit {
 
 
   constructor(private oraretService: OraretService,
+     private sherbimetService:SherbimetService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
      private authService: AuthService,
      public spinnerService:NgxSpinnerService) {
-    this.typeSelected = 'timer'
+     this.typeSelected = 'timer';
 
      }
 
@@ -52,6 +56,10 @@ export class OraretComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+      this.sherbimetService.getSherbimet().subscribe(
+        respond => this.shfaqSherbimet(respond));
+
     this.firstFormGroup = this._formBuilder.group({
       sherbimiZgjedhur : [Validators.required],
       puntoriZgjedhur : [Validators.required]
@@ -80,34 +88,32 @@ export class OraretComponent implements OnInit {
     this.oraret = [];
     console.log(this.datepipe.transform(this.dataZgjedhur,'yyyy-MM-dd'));
     this.getOraret(this.dataZgjedhur);
-
     this.showSpinner();//shfaqe preloaderin
   }
 
 
-
   getOraret(selectedDate: Date){
     let latest_date =this.datepipe.transform(this.dataZgjedhur, 'yyyy-MM-dd');
-
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
-  }
-  getSherbimet(){
-    this.oraretService.getSherbimet().subscribe(
-      respon=>this.shfaqSherbimet(respon));
+      //ka nevoj mu rregullu se nuk funksion
+
   }
 
+  shfaqSherbimet(re){
+
+    re.forEach(element => {
+      this.sherbimi.push(element[0])
+    });
+
+  }
+
+
   shfaqeOraret(response){
-    //console.log(response)
     response.forEach(element => {
-       this.oraret.push(element[0])
+      this.oraret.push(element[0])
     });
     console.log(response);
-  }
-  shfaqSherbimet(response){
-    response.forEach(element=>{
-      this.sherbimet.push(element[0])
-    });
   }
 
   submit(){

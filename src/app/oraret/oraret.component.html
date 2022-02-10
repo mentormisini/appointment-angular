@@ -43,31 +43,19 @@
                                 <br>
                                 <mat-form-field appearance="fill" class="demo-inline-calendar-card">
                                 <mat-label>Zgjedhe Sherbimin</mat-label>
-                                  <mat-select  formControlName="sherbimiZgjedhur"
-                                  [(ngModel)]="selektori">
 
-                                    <mat-select-trigger>
-                                      {{toppings.value}}
-                                    </mat-select-trigger>
-
-                                    <mat-option
-                                    *ngFor="let topping of sherbimet"
-                                    [value]="topping">
-                                      {{topping}}
+                                  <mat-select  formControlName="sherbimiZgjedhur" >
+                                    <mat-option *ngFor="let shfaq of sherbimi"  [value]="sherbimi">
+                                      {{shfaq}}
                                     </mat-option >
-
                                   </mat-select>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="fill" class="demo-inline-calendar-card">
                                   <mat-label>Zgjedhe Punetorin</mat-label>
-                                    <mat-select  [(ngModel)]="selektori" formControlName="puntoriZgjedhur">
-                                      <mat-select-trigger>
-                                        {{toppings.value}}
-                                      </mat-select-trigger>
-                                      <mat-option *ngFor="let topping of oraret"
-                                      [value]="topping" >
-                                        {{topping}}
+                                    <mat-select [(ngModel)]="selektori" formControlName="puntoriZgjedhur">
+                                      <mat-option *ngFor="let orari of oraret">
+                                        {{orari}}
                                       </mat-option >
                                     </mat-select>
                                   </mat-form-field>
