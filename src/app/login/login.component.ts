@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   form: any = {};
@@ -24,14 +25,14 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password='';
- 
+
   constructor(
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
       private router: Router,
       private _snackBar: MatSnackBar
        ) { }
-  
+
        openSnackBar() {
         this._snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
           duration: this.durationInSeconds * 1000
@@ -44,17 +45,17 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
-    
+
   }
- 
+
 
   handleClear(){
     this.form.username='';
     this.form.password='';
-  
+
   }
 
-  
+
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
@@ -65,15 +66,15 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         //this.reloadPage();
         this.handleLogin();
-    
+
       },
       err => {
-      
+
         this.openSnackBar();
         this.isLoginFailed = true;
-        
-        
-        
+
+
+
       }
     );
   }

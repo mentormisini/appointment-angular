@@ -4,7 +4,7 @@
     opacity: 0.75;
     font-size: 0.75em;
   }
-  
+
   .demo-inline-calendar-card {
     width: 300px;
   }
@@ -12,33 +12,33 @@
     color:#fff;
     background-color: #081540;
   }
-  
+
   .mat-stepper-horizontal {
     margin-top: 8px;
   }
-  
+
   .mat-form-field {
     margin-top: 16px;
   }
   .demo-inline-calendar-card {
     width: 300px;
   }
-  
+
   .mat-stepper-horizontal {
     margin-top: 8px;
   }
-  
+
   .mat-form-field {
     margin-top: 16px;
   }
   .col-lg-6 {
     width: 100%;
   }
-  
+
   .error {
     color: red;
   }
-  
+
   body {
     color: #000;
     overflow-x: hidden;
@@ -46,29 +46,29 @@
     background-color: #B0BEC5;
     background-repeat: no-repeat
   }
-  
+
   .card2 {
     margin: 0px 40px;
   }
-  
+
   .image {
     width: 100%;
   }
-  
- 
-  
+
+
+
   .line {
     height: 1px;
     width: 45%;
     background-color: #E0E0E0;
     margin-top: 10px
   }
-  
+
   .or {
     width: 10%;
     font-weight: bold
   }
-  
+
   .text-sm {
     font-size: 14px !important
   }
@@ -82,65 +82,65 @@
     opacity: 1;
     font-weight: 300
   }
-  
+
   .imgcenter{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+
   }
   :-ms-input-placeholder {
     color: #BDBDBD;
     font-weight: 300
   }
-  
+
   ::-ms-input-placeholder {
     color: #BDBDBD;
     font-weight: 300
   }
-  
+
   .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
-  
+
   .example-full-width {
     width: 100%;
   }
-  
+
   td {
     padding-right: 8px;
   }
-  
-  
 
-  
+
+
+
   button:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     outline-width: 0
   }
-  
+
   a {
     color: inherit;
     cursor: pointer
   }
-  
- 
-  
+
+
+
   .border-line {
-    border-right: 1px solid #dadada;  
+    border-right: 1px solid #dadada;
     height: 100%;
   }
 
-  
+
   .bg-blue {
-   
+
     background-color: #1A237E;
   }
-  
+
   @media screen and (max-width: 991px) {
     .logo {
         margin-left: 0px
@@ -149,7 +149,7 @@
         width: 300px;
         height: 220px
     }
-  
+
     .card2 {
         border-top: 1px solid #EEEEEE !important;
         margin: 0px 15px
@@ -160,16 +160,24 @@
 .mat-stepper-horizontal, .mat-stepper-vertical{
   background-color: #fff;
   box-shadow:1px 1px 2px 2px rgb(233, 232, 232);
- 
+
 }
 ::ng-deep.mat-horizontal-stepper-header-container{
   background-color:whitesmoke;
   color:white;
+
 }
 ::ng-deep.mat-step-header .mat-step-label.mat-step-label-active{
 color:#000;
+
 }
 ::ng-deep.mat-step-label-selected{
   color:#1A237E !important;
- 
+
 }
+
+/*::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+ */

@@ -32,8 +32,9 @@ export class AuthService {
       createdDateTime: new Date().toJSON("yyyy/MM/dd HH:mm"),
       name: user.namesurname,
       role: ["USER"]
-
     }, httpOptions);
   }
+
+
 
 }
