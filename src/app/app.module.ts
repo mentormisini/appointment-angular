@@ -35,7 +35,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LoginComponent,
     ErrorComponent,
     NavbarComponent,
-    FooterComponent,  
+    FooterComponent,
     ListAppointmentsComponent,
     RegisterComponent,
     HomeComponent,
@@ -46,15 +46,15 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RegisterUserComponent,
     OraretComponent,
     ForgotpasswordComponent,
-
     OraretComponent
-    
-    
-   
-    
+
+
+
+
+
   ],
 
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -65,14 +65,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     MaterialModule,
     NgxSpinnerModule
-   
-   
 
-  
 
- 
-    
-    
+
+
+
+
+
+
   ],
   providers: [authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent],

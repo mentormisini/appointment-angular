@@ -32,20 +32,5 @@ export class OraretService {
   }
 
 
-  postTermin(terminRequst3, terminiRequest1, terminiRequest2): Observable<any>{
-    console.log("ora" + terminiRequest2.orarizgjedhur)
-    console.log('data' + terminiRequest2.dataZgjedhur)
-    return this.http.post(AUTH_API, {
-      emri: terminiRequest1.emri,
-      mbiemri: terminiRequest1.mbiemri,
-      email: terminiRequest1.email,
-      ora: terminiRequest2.orarizgjedhur,
-      numri: terminiRequest1.numri,
-      sherbimi: terminRequst3.sherbimiZgjedhur,
-      puntori: terminRequst3.puntoriZgjedhur,
-      data: terminiRequest2.dataZgjedhur
 
-    }, httpOptions);
-
-  }
 }

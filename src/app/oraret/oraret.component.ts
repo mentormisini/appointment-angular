@@ -13,6 +13,9 @@ import { AuthService } from '../_services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {SherbimetService} from '../_services/OraretServices/sherbimet.service';
 import {element} from 'protractor';
+import {PunetoretService} from '../_services/OraretServices/punetoret.service';
+import {DergoRezerviminService} from '../_services/OraretServices/dergo-rezervimin.service';
+
 
 
 
@@ -26,10 +29,13 @@ export class OraretComponent implements OnInit {
   dataZgjedhur:Date;
   oraret: string[] = [];
   sherbimi:string[]=[];
+  punetori:string[]=[];
   firstFormGroup:FormGroup;
   secondFormGroup:FormGroup;
   thirdFormGroup:FormGroup;
   selektori:any;
+  sherbimiZgj:any;
+  puntoriZgj:any;
   emri:string;
   kohapritjes=6;
   isSuccessful = false;
@@ -40,6 +46,8 @@ export class OraretComponent implements OnInit {
 
   constructor(private oraretService: OraretService,
      private sherbimetService:SherbimetService,
+     private punetoretService:PunetoretService,
+     private dergoRezerviminService: DergoRezerviminService,
      private _formBuilder:FormBuilder,
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
@@ -57,12 +65,24 @@ export class OraretComponent implements OnInit {
 
     ngOnInit(): void {
 
+      //shfaq sherbimet
       this.sherbimetService.getSherbimet().subscribe(
-        respond => this.shfaqSherbimet(respond));
+        respond => {
+          this.sherbimi = respond.sherbimet;
+        });
+
+      //sherbimet end
+
+      //shfaq punetoret
+      this.punetoretService.getPunetoret().subscribe(
+        respond => {
+          this.punetori = respond.punetoret
+        });
+      //punetoret end
 
     this.firstFormGroup = this._formBuilder.group({
-      sherbimiZgjedhur : [Validators.required],
-      puntoriZgjedhur : [Validators.required]
+      sherbimiZgjedhur : ['',Validators.required],
+      puntoriZgjedhur : ['',Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       orarizgjedhur: ['', Validators.required],
@@ -89,6 +109,7 @@ export class OraretComponent implements OnInit {
     console.log(this.datepipe.transform(this.dataZgjedhur,'yyyy-MM-dd'));
     this.getOraret(this.dataZgjedhur);
     this.showSpinner();//shfaqe preloaderin
+
   }
 
 
@@ -100,13 +121,6 @@ export class OraretComponent implements OnInit {
 
   }
 
-  shfaqSherbimet(re){
-
-    re.forEach(element => {
-      this.sherbimi.push(element[0])
-    });
-
-  }
 
 
   shfaqeOraret(response){
@@ -116,14 +130,16 @@ export class OraretComponent implements OnInit {
     console.log(response);
   }
 
+
+
   submit(){
-    this.oraretService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
+    this.dergoRezerviminService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
       data => {console.log("weeeeeeeeeeeeeeeeee");
       }
     );
     console.log("submit form");
     console.log("oraaaaa" + this.secondFormGroup.value)
-    console.log(this.firstFormGroup.getRawValue);
+    console.log("forma par"+this.firstFormGroup.value);
     console.log(this.secondFormGroup.value);
     console.log("emriiiii" + this.thirdFormGroup.value);
 }
@@ -134,4 +150,6 @@ export class OraretComponent implements OnInit {
       this.spinnerService.hide();
     }, 1000); //1 sekond i shfaqur
   }
+
+
 }

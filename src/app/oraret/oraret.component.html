@@ -11,9 +11,8 @@
     <mat-horizontal-stepper #stepper>
       <!-- stepp1 -->
 
-      <mat-step [stepControl]="firstFormGroup">
-              <form
-               [formGroup]="firstFormGroup" novalidate>
+      <mat-step [stepControl]="firstFormGroup" >
+              <form [formGroup]="firstFormGroup" >
                 <div class="container-fluid mx-auto">
                   <div class="card card0 border-0">
                       <div class="row d-flex">
@@ -41,11 +40,12 @@
                                 <div class="row px-3 justify-content-center">
                                 <ng-template matStepLabel>Hapi 1</ng-template>
                                 <br>
+
                                 <mat-form-field appearance="fill" class="demo-inline-calendar-card">
                                 <mat-label>Zgjedhe Sherbimin</mat-label>
 
-                                  <mat-select  formControlName="sherbimiZgjedhur" >
-                                    <mat-option *ngFor="let shfaq of sherbimi"  [value]="sherbimi">
+                                  <mat-select  [(ngModel)]="sherbimiZgj" formControlName="sherbimiZgjedhur" >
+                                    <mat-option *ngFor="let shfaq of sherbimi"  [value]="shfaq">
                                       {{shfaq}}
                                     </mat-option >
                                   </mat-select>
@@ -53,14 +53,16 @@
 
                                 <mat-form-field appearance="fill" class="demo-inline-calendar-card">
                                   <mat-label>Zgjedhe Punetorin</mat-label>
-                                    <mat-select [(ngModel)]="selektori" formControlName="puntoriZgjedhur">
-                                      <mat-option *ngFor="let orari of oraret">
-                                        {{orari}}
+                                    <mat-select [(ngModel)]="puntoriZgj"  formControlName="puntoriZgjedhur" required>
+                                      <mat-option *ngFor="let puntor of punetori"  [value]="puntor">
+                                        {{puntor}}
                                       </mat-option >
                                     </mat-select>
+
                                   </mat-form-field>
+
                                 <div>
-                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="selektori" (click)="openSnackBar()">Vazhdo</button>
+                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!puntoriZgj" (click)="openSnackBar()">Vazhdo</button>
                                 </div>
                             </div>
                             </div>
@@ -89,7 +91,7 @@
                         </mat-calendar>
 
 
-                          <input type="hidden"
+                          <input type="text"
                                  formControlName="dataZgjedhur"
                                  ngModel="{{dataZgjedhur|date:'yyyy-MM-dd'}}" disabled>
                       </mat-card>
@@ -107,15 +109,15 @@
                       <mat-form-field appearance="fill"
                       class="demo-inline-calendar-card">
                       <mat-label>Zgjedhe orarin</mat-label>
-                        <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur">
+                        <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur" required>
 
-                          <mat-option *ngFor="let topping of oraret"
-                           [value]="topping">
+                          <mat-option *ngFor="let topping of oraret" [value]="topping">
                             {{topping}}
                           </mat-option >
                         </mat-select>
                       </mat-form-field>
 
+                        <br>
                       <div>
                         <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
                       </div>
@@ -149,8 +151,14 @@
                               <p>Ploteso te dhenat tuaja, Konfrimo ato dhe shtyp butonin rezervo</p>
 
                             <b>Sherbimi</b>
+                              <b class="detajet">
+                                {{sherbimiZgj}}
+                              </b>
                             <br>
                             <b>Punetori</b>
+                              <b class="detajet">
+                                {{puntoriZgj}}
+                              </b>
                             <br>
                             <b>Data dhe ora:</b>
                             <b class="detajet">

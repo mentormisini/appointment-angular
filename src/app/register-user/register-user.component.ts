@@ -16,7 +16,7 @@ export class RegisterUserComponent implements OnInit {
   numri='04';
   kohapritjes=5;
   startDate = new Date(1990, 0, 1);
-  
+
   constructor(private authService: AuthService,
      private router: Router,
      private _snackBar:MatSnackBar) { }
@@ -34,8 +34,8 @@ export class RegisterUserComponent implements OnInit {
         this.isSignUpFailed = false;
         this.handleRegistration();
         this.openSnackBar();
-        
-        
+
+
       },
       err => {
         this.errorMessage = err.error.message;
@@ -44,8 +44,9 @@ export class RegisterUserComponent implements OnInit {
     );
   }
 
-  //qekjo e ban si metod numrin 04, e me thirr ndiv pa click
-  setNumber(numri){
+  // qekjo e ban si metod numrin 04, e me thirr ndiv pa click
+  setNumber(numri) {
+    // tslint:disable-next-line:no-unused-expression
     numri.value;
   }
 
@@ -65,7 +66,7 @@ export class RegisterUserComponent implements OnInit {
 
   handleRegistration(){
     this.router.navigate(['login'])
-  
+
   }
 
 }
