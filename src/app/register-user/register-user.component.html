@@ -8,7 +8,7 @@
             </div>
 
             <div class="col-lg-6">
-                <form 
+                <form
                 name="form"
                 *ngIf="!isSuccessful"
                 (ngSubmit)="f.form.valid && onSubmit()"
@@ -21,167 +21,167 @@
                         </div>
                         <div class="row px-3 mb-4">
                         <div class="line"> </div>
-                        </div> 
+                        </div>
                         <!-- Emri Mbiemri -->
                         <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="namesurname.invalid && namesurname.touched"> 
+                                *ngIf="namesurname.invalid && namesurname.touched">
                                 <div *ngIf="namesurname.errors.required">Sheno te dhenat</div>
                                 <div *ngIf="namesurname.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
                                 </div>
-                                
-                                <mat-label>Emri dhe Mbiemri</mat-label> 
-                                <input matInput 
+
+                                <mat-label>Emri dhe Mbiemri</mat-label>
+                                <input matInput
                                 type="text"
                                 name="namesurname"
-                                [(ngModel)]="form.namesurname"                           
+                                [(ngModel)]="form.namesurname"
                                 minlength="5"
                                 maxlength="20"
-                                #namesurname="ngModel"                                          
+                                #namesurname="ngModel"
                                 placeholder="Sheno Emrin dhe Mbiemri tuaj"
                                 required>
-                              </mat-form-field>   
-                        </div> 
+                              </mat-form-field>
+                        </div>
                          <!-- Datelindja -->
                         <div class="example-form">
                         <mat-form-field class="example-full-width" appearance="fill">
                             <div class="d-inline-block"
-                            *ngIf="birthday.invalid && birthday.touched"> 
-                            <div *ngIf="birthday.errors.required">Selekto Daten</div>                       
+                            *ngIf="birthday.invalid && birthday.touched">
+                            <div *ngIf="birthday.errors.required">Selekto Daten</div>
                             </div>
-                            <mat-label>Datelindja</mat-label> 
-                            <input matInput 
+                            <mat-label>Datelindja</mat-label>
+                            <input matInput
                             [matDatepicker]="picker"
-                            name="birthday"  
-                            [(ngModel)]="form.birthday" 
-                            #birthday="ngModel" 
-                            
+                            name="birthday"
+                            [(ngModel)]="form.birthday"
+                            #birthday="ngModel"
+
                             required >
                             <mat-datepicker-toggle matSuffix  [for]="picker"  >
                             </mat-datepicker-toggle>
                             <mat-datepicker touchUi #picker startView="year" [startAt]="startDate">
                             </mat-datepicker>
-                          </mat-form-field>   
-                        </div> 
+                          </mat-form-field>
+                        </div>
                          <!-- Email -->
                          <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="email.invalid"> 
+                                *ngIf="email.invalid">
                                 <div *ngIf="email.errors.email">Sheno Emailin e sakt</div>
                                 </div>
-                                <mat-label>Emaili </mat-label> 
-                                <input matInput 
+                                <mat-label>Emaili </mat-label>
+                                <input matInput
                                 type="email"
                                 name="email"
-                                [(ngModel)]="form.email"                           
+                                [(ngModel)]="form.email"
                                 minlength="5"
                                 maxlength="35"
-                                #email="ngModel"                                          
+                                #email="ngModel"
                                 placeholder="Sheno emailin tuaj"
                                 required email>
-                              </mat-form-field>   
-                        </div> 
+                              </mat-form-field>
+                        </div>
                         <!-- Celulari -->
                         <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="celulari.invalid && celulari.touched"> 
+                                *ngIf="celulari.invalid && celulari.touched">
                                 <div *ngIf="celulari.errors.required">Sheno te dhenat</div>
                                 <div *ngIf="celulari.errors.minlength">Duhet te jene gjithsej 9 numra</div>
                                 </div>
-                                <mat-label>Celulari</mat-label> 
-                                <input matInput 
+                                <mat-label>Celulari</mat-label>
+                                <input matInput
                                 type="text"
                                 (keypress)="keyPressNumbers($event)"
                                 name="celulari"
-                                [(ngModel)]="form.celulari"                           
+                                [(ngModel)]="form.celulari"
                                 minlength="9"
                                 maxlength="14"
                                 [(ngModel)]="numri"
-                                #celulari="ngModel"                                          
+                                #celulari="ngModel"
                                 placeholder="Shembull: 044 123 123"
                                 required>
-                              </mat-form-field>   
+                              </mat-form-field>
                         </div>
                         <!-- Emri Perdoruesit / USeri -->
                         <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="username.invalid && username.touched"> 
+                                *ngIf="username.invalid && username.touched">
                                 <div *ngIf="username.errors.required">Sheno te dhenat</div>
                                 <div *ngIf="username.errors.minlength">Duhet te ket me shume se 3 karaktere</div>
                                 </div>
-                                <mat-label>Emri Perdoruesit</mat-label> 
-                                <input matInput 
+                                <mat-label>Emri Perdoruesit</mat-label>
+                                <input matInput
                                 type="text"
                                 name="username"
-                                [(ngModel)]="form.username"                           
+                                [(ngModel)]="form.username"
                                 minlength="3"
                                 maxlength="20"
-                                #username="ngModel"                                          
+                                #username="ngModel"
                                 placeholder="Sheno Emrin e Perdoruesit"
                                 required>
-                              </mat-form-field>   
+                              </mat-form-field>
                         </div>
                         <!-- Fjalekalimi -->
                         <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="password.invalid && password.touched"> 
+                                *ngIf="password.invalid && password.touched">
                                 <div *ngIf="password.errors.required">Sheno te dhenat</div>
                                 <div *ngIf="password.errors.minlength">Duhet te ket me shum se 6 karaktere</div>
                                 </div>
-                           
-                                <mat-label>Fjalekalimi</mat-label> 
-                                <input matInput 
+
+                                <mat-label>Fjalekalimi</mat-label>
+                                <input matInput
                                 type="password"
                                 name="password"
-                                [(ngModel)]="form.password"                           
+                                [(ngModel)]="form.password"
                                 minlength="6"
                                 maxlength="30"
-                                #password="ngModel"                                          
+                                #password="ngModel"
                                 placeholder="Sheno Fjalekalimin"
                                 required >
-                              </mat-form-field>   
+                              </mat-form-field>
                         </div>
 
-                       
-                      
-                        <div class="custom-control custom-checkbox custom-control-inline"> 
+
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
                             <input id="chk1" type="checkbox" name="kushtet"
                             [(ngModel)]="form.kushtet"
                             #kushtet="ngModel"
                             class="custom-control-input" required> <label for="chk1" class="custom-control-label text-xl">Pajtohuni me Termat dhe Kushtet</label>&nbsp;&nbsp; <a href="#" class="linki"> Lexo Rregullat</a>
-                       
+
                         <br>
-                    
+
                         </div>
                         <div class="d-inline-block"
-                        *ngIf="f.submitted && kushtet.invalid "> 
+                        *ngIf="f.submitted && kushtet.invalid ">
                         <div *ngIf="kushtet.errors.required">Duhet qe te pajtoheni me rregullat per tu regjistruar</div>
                         </div>
                         <br>
                         <div class="row mb-3 px-3">
                         <br>
-                        <button class="btn btn-blue text-center">Regjistrohu</button> 
+                        <button class="btn btn-blue text-center">Regjistrohu</button>
                         </div>
-                        
-                        <div class="alert alert-warning" 
+
+                        <div class="alert alert-warning"
                         *ngIf="f.submitted && isSignUpFailed">
                         Regjistrimi Deshtoi!
                         <br />
-                        {{ errorMessage }}        
+                        {{ errorMessage }}
                         </div>
-                   
-                        
+
+
                     </div>
-                
+
                 </form>
-                <div *ngIf="isSuccessful" (click)="openSnackBar()">
+                <div *ngIf="isSuccessful" (click)="showSuccess()">
                 </div>
-              
+
             </div>
         </div>
 

@@ -41,9 +41,9 @@ export class WelcomeComponent implements OnInit {
     });
     console.log(this.message);
     this.name = this.activatedRoute.snapshot.params['name'];
-   
+
   }
-  
+
   getHelloWorld(): void{
     this.service.executeHelloWorldService().subscribe(
     response => this.handleSuccessfulResponse(response));
@@ -52,5 +52,6 @@ export class WelcomeComponent implements OnInit {
   handleSuccessfulResponse(response){
     console.log(response.message);
   }
+
 
 }

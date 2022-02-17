@@ -26,7 +26,7 @@ import { OraretComponent } from './oraret/oraret.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DatePipe } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot()
 
 
 

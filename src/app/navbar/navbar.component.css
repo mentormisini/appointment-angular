@@ -1,36 +1,52 @@
-.myLogo:hover {
-    background: url(/assets/images/logof.svg);
-    width: 70px;
+.menuicon{
+  width: 20px;
+  margin-bottom: 5px;
+
 }
 
 .mylogo {
-    width: 80px;
+  width: 80px;
 }
 
 .navbar-nav {
-    padding: 10px
+  padding: 10px
 }
 
 .navbar {
-    padding: 30px;
-    height: 70px;
-    box-shadow: rgb(231, 222, 222) 1px 1px 1px 1px;
-}
+  padding: 30px;
+  height: 70px;
+  box-shadow: rgb(231, 222, 222) 1px 1px 1px 1px;
+  font-weight: 400;
+  text-decoration-thickness: 5%;
 
+}
 .nav-link.active {
-    font-weight: bold;
-    text-decoration: underline 4px;
-    text-underline-offset: 7px;
-    text-decoration-color: #0B5ED7;
+  font-weight: 500;
+  border-bottom: 1px solid #000000;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color:#0e3c89;
 }
 
-.nav-link:hover {
-    font-weight: 600;
-    text-decoration: underline 4px;
-    text-underline-offset: 5px;
-    text-decoration-color: #0B5ED7;
+.navbar-light .navbar-toggler{
+  border: none;
 }
 
+.navbar-light .navbar-nav .nav-link{
+  color:#000000;
+}
+.navbar-toggler-icon{
+  width: 20px;
+  height: 2px;
+  background: #0e3c89;
+}
+.navbar-toggler-icon:before {
+  display: block;
+  content: "";
+  width: 32px;
+  height: 2px;
+  box-shadow: 0 -8px 0 0 #0e3c89, 0 8px 0 0 #0e3c89;
+}
 .example-form {
     width: 90%;
     align-items: center;
@@ -58,16 +74,33 @@
 @media screen and (max-width: 991px) {
     .navbar {
         padding: 20px;
-        height: 90px;
+        height: 70px;
         box-shadow: rgb(231, 222, 222) 1px 1px 1px 1px;
+
     }
+
     .navbar-collapse{
         flex-basis: 100%;
         flex-grow: 1;
         align-items: center;
         background-color: whitesmoke;
-        margin-top:16px;
+        margin-top:7px;
+        margin-left: -20px;
+        margin-right: -20px;
         width: 100%;
+        border-bottom:5px solid #1881FF;
     }
-    
+    .navbar-brand{
+        display: inline-block;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        margin-top:-10px;
+        white-space: nowrap;
+  }
+    .navbar-toggler-icon{
+        margin-top:-10px;
+  }
+
+
+
 }

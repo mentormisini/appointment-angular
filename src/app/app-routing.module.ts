@@ -9,20 +9,25 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent} from './board-admin/board-admin.component';
+import {BoardUserComponent} from './board-user/board-user.component';
+import {OraretComponent} from './oraret/oraret.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path:'', component: HomeComponent },
+  { path:'login', component: LoginComponent },
+  { path:'register', component: RegisterComponent },
   { path:'terminet', component: ListAppointmentsComponent},
   { path:'welcome/:name', component: WelcomeComponent},
   { path:'welcome', component: WelcomeComponent},
   { path:'register-user',component:RegisterUserComponent},
   { path:'forgotpassword',component:ForgotpasswordComponent},
-   {path :'profile',component:ProfileComponent},
+  { path:'profile',component:ProfileComponent},
+  { path:'board-user',component:BoardUserComponent},
+  { path:'oraret',component:OraretComponent},
   { path:'**', component: ErrorComponent}
- 
+
 ];
 
 @NgModule({

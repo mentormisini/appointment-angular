@@ -15,6 +15,7 @@ import {SherbimetService} from '../_services/OraretServices/sherbimet.service';
 import {element} from 'protractor';
 import {PunetoretService} from '../_services/OraretServices/punetoret.service';
 import {DergoRezerviminService} from '../_services/OraretServices/dergo-rezervimin.service';
+import validate = WebAssembly.validate;
 
 
 
@@ -42,6 +43,10 @@ export class OraretComponent implements OnInit {
   isFailed = false;
   errorMessage:string;
   typeSelected:string;
+  realizimiTerminit='';
+  deshtimiTerminit='';
+  realizmiKorrekt = false;
+  realizimiFatal = false;
 
 
   constructor(private oraretService: OraretService,
@@ -70,7 +75,6 @@ export class OraretComponent implements OnInit {
         respond => {
           this.sherbimi = respond.sherbimet;
         });
-
       //sherbimet end
 
       //shfaq punetoret
@@ -117,7 +121,7 @@ export class OraretComponent implements OnInit {
     let latest_date =this.datepipe.transform(this.dataZgjedhur, 'yyyy-MM-dd');
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
-      //ka nevoj mu rregullu se nuk funksion
+
 
   }
 
@@ -134,14 +138,18 @@ export class OraretComponent implements OnInit {
 
   submit(){
     this.dergoRezerviminService.postTermin(this.firstFormGroup.value, this.thirdFormGroup.value, this.secondFormGroup.value).subscribe(
-      data => {console.log("weeeeeeeeeeeeeeeeee");
+      data => {
+        this.realizmiKorrekt=true;
+        this.realizimiTerminit=data.mesazhi;
+        this.realizimiFatal=false;
+      },
+      gabim => {
+        this.realizimiFatal=true;
+        this.deshtimiTerminit=gabim.error.mesazhi;
       }
+
     );
-    console.log("submit form");
-    console.log("oraaaaa" + this.secondFormGroup.value)
-    console.log("forma par"+this.firstFormGroup.value);
-    console.log(this.secondFormGroup.value);
-    console.log("emriiiii" + this.thirdFormGroup.value);
+
 }
   public showSpinner(): void {
     this.spinnerService.show();

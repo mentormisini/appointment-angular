@@ -11,7 +11,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class NavbarComponent implements OnInit {
 public isCollapsed=false; //hamburger icona
 typeSelected:string;
-  constructor(private spinnerService: NgxSpinnerService) { 
+  navbaridRef:any;
+  constructor(private spinnerService: NgxSpinnerService) {
     this.typeSelected = 'timer';
   }
   public showSpinner(): void {
@@ -21,11 +22,17 @@ typeSelected:string;
       this.spinnerService.hide();
     }, 1000); //1 sekond
   }
-  
+
+  ToggleNavBar () {
+    let element: HTMLElement = document.getElementsByClassName( 'navbar-toggler' )[ 0 ] as HTMLElement;
+    if ( element.getAttribute( 'aria-expanded' ) == 'true' ) {
+      element.click();
+    }
+  }
   ngOnInit(): void {
   }
-  
-  
- 
+
+
+
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -19,21 +20,17 @@ export class RegisterUserComponent implements OnInit {
 
   constructor(private authService: AuthService,
      private router: Router,
-     private _snackBar:MatSnackBar) { }
+     private _snackBar:MatSnackBar,
+     private toastr:ToastrService) { }
 
-     openSnackBar() {
-      this._snackBar.open('Ju u regjistruat me sukses, Logohuni','X', {
-        duration: this.kohapritjes * 1000,
-      });
-     }
+
   onSubmit() {
     this.authService.register(this.form).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.handleRegistration();
-        this.openSnackBar();
+        this.showSuccess()
 
 
       },
@@ -67,6 +64,10 @@ export class RegisterUserComponent implements OnInit {
   handleRegistration(){
     this.router.navigate(['login'])
 
+  }
+  showSuccess() {
+    this.toastr.success('Ju mund te logoheni tani','Regjistrimi u be me sukses',{timeOut:5000,progressBar:true,progressAnimation:'decreasing',closeButton:true,positionClass:'toast-bottom-center'});
+    this.handleRegistration();
   }
 
 }

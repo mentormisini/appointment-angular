@@ -1,10 +1,10 @@
-<div class="container position-relative" xmlns="http://www.w3.org/1999/html">
+<div class="container position-relative" >
   <!--marr nga linku https://napster2210.github.io/ngx-spinner/-->
 
   <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
     <p style="color:#081540" >Po ngarkohet</p>
   </ngx-spinner>
-
+<br>
   <!--Preloader i lokalizuar vetem ne komponent ( tek oraret ) -->
     <div class="col-xs-12">
 
@@ -45,8 +45,8 @@
                                 <mat-label>Zgjedhe Sherbimin</mat-label>
 
                                   <mat-select  [(ngModel)]="sherbimiZgj" formControlName="sherbimiZgjedhur" >
-                                    <mat-option *ngFor="let shfaq of sherbimi"  [value]="shfaq">
-                                      {{shfaq}}
+                                    <mat-option *ngFor="let sherbim of sherbimi"  [value]="sherbim">
+                                      {{sherbim}}
                                     </mat-option >
                                   </mat-select>
                                 </mat-form-field>
@@ -91,7 +91,7 @@
                         </mat-calendar>
 
 
-                          <input type="text"
+                          <input type="hidden"
                                  formControlName="dataZgjedhur"
                                  ngModel="{{dataZgjedhur|date:'yyyy-MM-dd'}}" disabled>
                       </mat-card>
@@ -112,7 +112,7 @@
                         <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur" required>
 
                           <mat-option *ngFor="let topping of oraret" [value]="topping">
-                            {{topping}}
+                            {{topping }}
                           </mat-option >
                         </mat-select>
                       </mat-form-field>
@@ -188,7 +188,8 @@
                         <div class="row px-3 justify-content-center">
                         <ng-template matStepLabel>Hapi 3</ng-template>
                         <br>
-                        <table class="example-full-width" cellspacing="0"><tr>
+                        <table class="example-full-width" cellspacing="0">
+                          <tr>
                           <td><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
                             <input type="text"
@@ -206,7 +207,8 @@
                              #mbiemri
                               matInput required>
                           </mat-form-field></td>
-                        </tr></table>
+                        </tr>
+                          </table>
 
 
                         <table class="example-full-width" aria-colspan="2">
@@ -255,10 +257,19 @@
               <div class="row px-3 justify-content-center border-line">
                 <div class="alert alert-primiary" role="alert">
                   <br>
+                  <div *ngIf="realizmiKorrekt">
               <img src="../../assets/images/Success.png" width="100px" class="imgcenter">
               <br>
-              <h4>Termini u realizua me sukses </h4>
+              <h4>{{realizimiTerminit}}</h4>
               <hr>
+                  </div>
+                  <div *ngIf="realizimiFatal">
+                    <img src="../../assets/images/error.png" width="100px" class="imgcenter">
+                    <br>
+                    <h4>{{deshtimiTerminit}}</h4>
+                    <hr>
+                  </div>
+
               <button  class="btn btn-blue imgcenter" (click)="stepper.reset()">Rezervo Perseri</button>
               </div>
               </div>

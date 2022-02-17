@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  durationInSeconds=10;
+  durationInSeconds=5;
 
   username = '';
   password='';
@@ -30,8 +29,8 @@ export class LoginComponent implements OnInit {
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
       private router: Router,
-      private _snackBar: MatSnackBar
-       ) { }
+      private _snackBar: MatSnackBar)
+      { }
 
        openSnackBar() {
         this._snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
@@ -45,7 +44,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
-
   }
 
 
@@ -64,27 +62,21 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        //this.reloadPage();
         this.handleLogin();
+
 
       },
       err => {
 
         this.openSnackBar();
         this.isLoginFailed = true;
-
-
-
       }
     );
   }
 
-  reloadPage() {
-    window.location.reload();
-  }
 
   handleLogin(){
-    this.router.navigate(['welcome', this.username]);
+    this.router.navigate(['board-user',this.username]);
   }
 }
 

@@ -154,6 +154,36 @@
         border-top: 1px solid #EEEEEE !important;
         margin: 0px 15px
     }
+
+    table, thead, tbody, th, td, tr {
+      display: block;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+
+    }
+
+    td {
+      border: none;
+      position: relative;
+    }
+
+    td:before {
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+
+    }
+
+    /*
+    Label the data
+    */
+
+
   }
 
 
@@ -175,6 +205,13 @@ color:#000;
   color:#1A237E !important;
 
 }
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+
+
+/* Force table to not be like tables anymore */
 
 /*::ng-deep .mat-horizontal-stepper-header{
   pointer-events: none !important;
