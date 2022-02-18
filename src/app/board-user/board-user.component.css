@@ -11,6 +11,8 @@ body {
   position: fixed;
   height: 100%;
   overflow: auto;
+
+
 }
 
 .sidebar a {
@@ -31,10 +33,38 @@ body {
 
 div.content {
   margin-left: 200px;
-  padding: 20px 16px;
+
 
 }
+.topper{
+  background-color: whitesmoke;
+padding: 9px;
+}
+.down{
+  display: inline-block;
+  float:right;
 
+  width: 100%;
+  font-weight: 500;
+  margin-top: -2px;
+}
+table{
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+.btn-blue{
+  width: 100%;
+  height: 60px;
+  margin-top: -20px;
+}
+
+td{
+  width: 350px;
+
+}
+.teDhenatUser{
+  padding: 10px;
+}
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -44,6 +74,8 @@ div.content {
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
 }
+
+
 
 @media screen and (max-width: 400px) {
   .sidebar a {

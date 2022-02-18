@@ -63,8 +63,6 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.handleLogin();
-
-
       },
       err => {
 
@@ -76,7 +74,7 @@ export class LoginComponent implements OnInit {
 
 
   handleLogin(){
-    this.router.navigate(['board-user',this.username]);
+    this.router.navigate(['board-user']);
   }
 }
 
