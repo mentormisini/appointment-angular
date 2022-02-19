@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { ResetPasswordComponent} from './reset-password/reset-password.component';
+import { ProfileComponent} from './profile/profile.component';
 
 @Component({
   selector: 'app-board-user',
@@ -12,6 +14,7 @@ export class BoardUserComponent implements OnInit {
   username='';
   roles: string[] = [];
   startDate = new Date(1990, 0, 1);
+  callcomponent:any;
   constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -19,11 +22,16 @@ export class BoardUserComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
-
+      this.callProfile()
     }
   }
 
-  signOut() {
-    window.sessionStorage.clear();
+  callProfile(){
+    this.callcomponent=ProfileComponent;
   }
+  callPassword(){
+    this.callcomponent=ResetPasswordComponent;
+  }
+
+
 }

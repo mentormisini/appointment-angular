@@ -14,7 +14,6 @@ import { ListAppointmentsComponent } from './list-appointments/list-appointments
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -27,6 +26,8 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { DatePipe } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
+import { ProfileComponent} from './board-user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,15 +40,15 @@ import { ToastrModule } from 'ngx-toastr';
     ListAppointmentsComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
     RegisterUserComponent,
     OraretComponent,
     ForgotpasswordComponent,
-    OraretComponent
-
+    OraretComponent,
+    ResetPasswordComponent,
+    ProfileComponent
 
 
 

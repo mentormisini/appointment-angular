@@ -2,7 +2,9 @@ body {
   margin: 0;
 
 }
-
+a{
+  cursor: pointer;
+}
 .sidebar {
   margin: 0;
   padding: 0;

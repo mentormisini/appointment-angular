@@ -8,10 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent} from './board-admin/board-admin.component';
 import {BoardUserComponent} from './board-user/board-user.component';
 import {OraretComponent} from './oraret/oraret.component';
+import {ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
+import {ProfileComponent} from './board-user/profile/profile.component';
 
 
 const routes: Routes = [
@@ -23,9 +24,10 @@ const routes: Routes = [
   { path:'welcome', component: WelcomeComponent},
   { path:'register-user',component:RegisterUserComponent},
   { path:'forgotpassword',component:ForgotpasswordComponent},
-  { path:'profile',component:ProfileComponent},
   { path:'board-user',component:BoardUserComponent},
   { path:'oraret',component:OraretComponent},
+  { path:'board-user/reset-password',component:ResetPasswordComponent},
+  { path:'profile',component:ProfileComponent},
   { path:'**', component: ErrorComponent}
 
 ];
@@ -36,3 +38,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
