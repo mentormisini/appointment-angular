@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, NgModel } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
@@ -12,10 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAppointmentsComponent } from './list-appointments/list-appointments.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RegisterUserComponent } from './register-user/register-user.component';
@@ -29,19 +26,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
 import { ProfileComponent} from './board-user/profile/profile.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
     LoginComponent,
     ErrorComponent,
     NavbarComponent,
     FooterComponent,
     ListAppointmentsComponent,
-    RegisterComponent,
     HomeComponent,
     BoardAdminComponent,
-    BoardModeratorComponent,
     BoardUserComponent,
     RegisterUserComponent,
     OraretComponent,
@@ -49,9 +44,6 @@ import { ProfileComponent} from './board-user/profile/profile.component';
     OraretComponent,
     ResetPasswordComponent,
     ProfileComponent
-
-
-
 
   ],
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { NgxSpinnerService } from 'ngx-spinner';
-
+import {PreloaderService} from '../_services/preloader.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +11,9 @@ export class NavbarComponent implements OnInit {
 public isCollapsed=false; //hamburger icona
 typeSelected:string;
   navbaridRef:any;
-  constructor(private spinnerService: NgxSpinnerService) {
+  constructor(public prl: PreloaderService
+              ) {
     this.typeSelected = 'timer';
-  }
-  public showSpinner(): void {
-    this.spinnerService.show();
-
-    setTimeout(() => {
-      this.spinnerService.hide();
-    }, 1000); //1 sekond
   }
 
   ToggleNavBar () {
@@ -30,9 +23,9 @@ typeSelected:string;
     }
   }
   ngOnInit(): void {
+
   }
-
-
-
-
+  showLoader(){
+    this.prl.showSpinner();
+  }
 }

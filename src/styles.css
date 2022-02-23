@@ -12,7 +12,8 @@
   }
   .btn-blue  {
     background-color: #1A237E;
-    width: 150px;
+    width: 280px;
+    height: 50px;
     color: #fff;
     border-radius: 2px;
     padding: 8px;
@@ -25,11 +26,16 @@
 }
 .btn-brown {
   background-color: #353646;
-  width: 150px;
+  height: 50px;
   color: #fff;
   border-radius: 2px;
   padding: 8px;
+  width: 200px;
 }
+.btn-kthehu{
+  width:100vh !important;
+}
+
 .btn-brown:hover {
   background-color: #4a4b63;
   color:white;
@@ -44,8 +50,8 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
-
 }
+
 .preloader{
   left: 50%;
   margin-left: -4em;

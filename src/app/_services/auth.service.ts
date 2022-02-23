@@ -29,16 +29,9 @@ export class AuthService {
       birthday: user.birthday,
       phone: user.celulari,
       createdDateTime: new Date().toJSON("yyyy/MM/dd HH:mm"),
-      name: user.namesurname,
+      name: user.emri,
+      surname:user.mbiemri,
       role: ["USER"]
     }, httpOptions);
   }
-
-
-
-
-
-
-
-
 }

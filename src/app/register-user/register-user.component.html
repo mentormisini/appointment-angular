@@ -14,7 +14,6 @@
                 (ngSubmit)="f.form.valid && onSubmit()"
                 #f="ngForm"
                 novalidate>
-
                 <div class="card2 card border-0 px-4 py-5">
                     <div class="row mb-4 px-3">
                         <h5 class="mb-0">Regjistrohu</h5>
@@ -22,27 +21,45 @@
                         <div class="row px-3 mb-4">
                         <div class="line"> </div>
                         </div>
-                        <!-- Emri Mbiemri -->
+                        <!-- Emri  -->
                         <div class="example-form">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <div class="d-inline-block"
-                                *ngIf="namesurname.invalid && namesurname.touched">
-                                <div *ngIf="namesurname.errors.required">Sheno te dhenat</div>
-                                <div *ngIf="namesurname.errors.minlength">Duhet te ket me shum se 5 karaktere</div>
+                                *ngIf="emri.invalid && emri.touched">
+                                <div *ngIf="emri.errors.required">Sheno te dhenat</div>
+                                <div *ngIf="emri.errors.minlength">Duhet te ket me shum se 3 karaktere</div>
                                 </div>
-
-                                <mat-label>Emri dhe Mbiemri</mat-label>
+                                <mat-label>Emri </mat-label>
                                 <input matInput
                                 type="text"
-                                name="namesurname"
-                                [(ngModel)]="form.namesurname"
-                                minlength="5"
+                                name="emri"
+                                [(ngModel)]="form.emri"
+                                minlength="3"
                                 maxlength="20"
-                                #namesurname="ngModel"
-                                placeholder="Sheno Emrin dhe Mbiemri tuaj"
+                                #emri="ngModel"
+                                placeholder="Sheno Emrin tuaj"
                                 required>
                               </mat-form-field>
                         </div>
+                  <div class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <div class="d-inline-block"
+                           *ngIf="mbiemri.invalid && mbiemri.touched">
+                        <div *ngIf="mbiemri.errors.required">Sheno te dhenat</div>
+                        <div *ngIf="mbiemri.errors.minlength">Duhet te ket me shum se 3 karaktere</div>
+                      </div>
+                      <mat-label>Mbiemri </mat-label>
+                      <input matInput
+                             type="text"
+                             name="mbiemri"
+                             [(ngModel)]="form.mbiemri"
+                             minlength="3"
+                             maxlength="20"
+                             #mbiemri="ngModel"
+                             placeholder="Sheno Mbiemrin tuaj"
+                             required>
+                    </mat-form-field>
+                  </div>
                          <!-- Datelindja -->
                         <div class="example-form">
                         <mat-form-field class="example-full-width" appearance="fill">
@@ -94,7 +111,7 @@
                                 <mat-label>Celulari</mat-label>
                                 <input matInput
                                 type="text"
-                                (keypress)="keyPressNumbers($event)"
+                                (keypress)="numericOnly($event)"
                                 name="celulari"
                                 [(ngModel)]="form.celulari"
                                 minlength="9"
@@ -143,6 +160,7 @@
                                 maxlength="30"
                                 #password="ngModel"
                                 placeholder="Sheno Fjalekalimin"
+                                       autocomplete="on"
                                 required >
                               </mat-form-field>
                         </div>

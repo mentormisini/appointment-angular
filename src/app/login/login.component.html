@@ -47,11 +47,18 @@
                                     <input matInput
                                     type="password"
                                     name="password"
+                                    [type]="hideElement ? 'password' : 'text'"
                                     [(ngModel)]="form.password"
                                     required minlength="6"
                                     placeholder="Sheno Fjalkalimin"
                                     autocomplete="on">
+<!--                                  eye icon-->
+                                    <mat-icon class="mycursor" matSuffix (click)="hideElement = !hideElement">
+                                    {{hideElement ? 'visibility_off' : 'visibility'}}
+                                    </mat-icon>
+<!--                                  eye icon-->
                                   </mat-form-field>
+
                             </div>
                         </div>
 
@@ -63,10 +70,6 @@
                             {{ errorMessage }}
                           </div>
 
-                        <div class="row px-3 mb-4">
-                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-xl">Mbajem mend</label> </div> <a href="#" routerLink="/forgotpassword" class="ml-auto">Kam harruar Fjalekalimin?</a>
-                        </div>
-
                         <div class="row mb-3 px-3">
                             <button type="submit"
                             class="btn btn-blue text-center"
@@ -74,11 +77,13 @@
                             Kycu
                             </button>
                             </div>
-
-                        <div class="row mb-4 px-3"> <label>Nuk keni llogari?
-                        <a href="#" routerLink="/register-user" class="text-success ">
-                        <b> Regjistrohu</b></a></label>
+                        <div> <label>Nuk keni llogari?
+                        <a href="#" routerLink="/register-user" class="decoration-text text-success ">
+                        <b> Regjistrohu</b></a></label><br>
+                          <a href="#" routerLink="/forgotpassword" class="decoration-text">Kam harruar Fjalekalimin?</a>
                         </div>
+
+
                     </div>
                 </form>
             </div>

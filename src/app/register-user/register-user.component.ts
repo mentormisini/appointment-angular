@@ -31,8 +31,6 @@ export class RegisterUserComponent implements OnInit {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.showSuccess()
-
-
       },
       err => {
         this.errorMessage = err.error.message;
@@ -48,15 +46,10 @@ export class RegisterUserComponent implements OnInit {
   }
 
   // e bllokon per karaktere veq numra lejon
-  keyPressNumbers(event) {
-    var charCode = (event.which) ? event.which : event.keyCode;
-    // Only Numbers 0-9
-    if ((charCode < 48 || charCode > 57)) {
-      event.preventDefault();
-      return false;
-    } else {
-      return true;
-    }
+  numericOnly(event): boolean {
+    let patt = /^([0-9])$/;
+    let result = patt.test(event.key);
+    return result;
   }
   ngOnInit(): void {
   }

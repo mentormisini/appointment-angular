@@ -4,27 +4,24 @@
   <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
     <p style="color:#081540" >Po ngarkohet</p>
   </ngx-spinner>
-<br>
   <!--Preloader i lokalizuar vetem ne komponent ( tek oraret ) -->
-    <div class="col-xs-12">
-
+    <div class="col-xs-12 mt-40">
     <mat-horizontal-stepper #stepper>
       <!-- stepp1 -->
-
       <mat-step [stepControl]="firstFormGroup" >
               <form [formGroup]="firstFormGroup" >
                 <div class="container-fluid mx-auto">
                   <div class="card card0 border-0">
                       <div class="row d-flex">
                           <div class="col-lg-6">
-                              <div class="card1 pb-5">
+                              <div class="card1 pb-5 ">
                                 <br>
-                                <div class="row px-3 justify-content-center border-line">
+                                <div class="row px-3 justify-content-center ">
                                   <div class="alert alert-secondary" role="alert">
                                       <h4 class="alert-heading">Si ta realizojme nje termin</h4>
                                       <hr>
                                       <h6><b>Hapi 1:</b> Zgjedh Sherbimin</h6>
-                                      <h6> <b> Hapi 2: </b>Zgjedh Punetorin/en</h6>
+                                      <h6><b>Hapi 2: </b>Zgjedh Punetorin/en</h6>
                                       <h6><b>Hapi 3:</b> Zgjedh Daten pastaj oren</h6>
                                       <h6><b>Hapi 4:</b> Sheno te dhenat tuaja</h6>
                                       <h6><b>Hapi 5:</b> Gjithqka gati per 60 sekonda</h6>
@@ -36,7 +33,7 @@
                           </div>
 
                           <div class="col-lg-6">
-                            <div class="card1 pb-5">
+                            <div class="card1 pb-5 posht">
                                 <div class="row px-3 justify-content-center">
                                 <ng-template matStepLabel>Hapi 1</ng-template>
                                 <br>
@@ -58,11 +55,11 @@
                                         {{puntor}}
                                       </mat-option >
                                     </mat-select>
-
-                                  </mat-form-field>
-
+                                </mat-form-field>
                                 <div>
-                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!puntoriZgj" (click)="openSnackBar()">Vazhdo</button>
+                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!puntoriZgj" (click)="openSnackBar()">
+                                    Vazhdo
+                                  </button>
                                 </div>
                             </div>
                             </div>
@@ -86,8 +83,7 @@
                         <div class="row px-3 justify-content-center border-line">
                         <mat-card  class="demo-inline-calendar-card" >
                         <mat-calendar (click)="onClickDate()"
-                                      [(selected)]="dataZgjedhur"
-                                      >
+                                      [(selected)]="dataZgjedhur">
                         </mat-calendar>
 
 
@@ -102,10 +98,9 @@
                 </div>
 
                 <div class="col-lg-6">
-                  <div class="card1 pb-5">
+                  <div class="card1 pb-5 posht">
                       <div class="row px-3 justify-content-center">
                       <ng-template matStepLabel>Hapi 2</ng-template>
-
                       <mat-form-field appearance="fill"
                       class="demo-inline-calendar-card">
                       <mat-label>Zgjedhe orarin</mat-label>
@@ -119,9 +114,15 @@
 
                         <br>
                       <div>
-                        <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
+                        <table>
+                          <tr>
+                            <td class="btn-kthehu"><button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> </td>
+                          <td class="btn-ok"><button class="btn-blue" matStepperNext [disabled]="!selektori">Vazhdo</button></td>
+                          </tr>
+
+                        </table>&nbsp;
                       </div>
-                        <button class="btn btn-blue text-center" matStepperNext [disabled]="!selektori">Vazhdo</button>
+
                   </div>
                   </div>
                   </div>
@@ -184,13 +185,13 @@
                   </div>
 
                   <div class="col-lg-6">
-                    <div class="card1 pb-5">
+                    <div class="card1 pb-5 posht">
                         <div class="row px-3 justify-content-center">
                         <ng-template matStepLabel>Hapi 3</ng-template>
                         <br>
                         <table class="example-full-width" cellspacing="0">
                           <tr>
-                          <td><mat-form-field class="example-full-width" appearance="fill">
+                          <td class="spc"><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
                             <input type="text"
                             minlength="3"
@@ -234,12 +235,13 @@
                           </mat-form-field></td>
                         </tr>
                       </table>
-
-
-
                         <div>
-                          <button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> &nbsp;
-                          <button name="rezervo" type="submit" (click)="submit()" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button>
+                          <table>
+                          <tr>
+                            <td class="btn-kthehu"><button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> </td>
+                            <td class="btn-ok"><button name="rezervo" type="submit" (click)="submit()" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button></td>
+                          </tr>
+                          </table>
                         </div>
                     </div>
                     </div>
@@ -251,7 +253,7 @@
     </mat-step>
     <!--STEPP3 END-->
             <mat-step>
-              <ng-template matStepLabel>Realizuar</ng-template>
+              <ng-template matStepLabel></ng-template>
 
               <br> <br>
               <div class="row px-3 justify-content-center border-line">

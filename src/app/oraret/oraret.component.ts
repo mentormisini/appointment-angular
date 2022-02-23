@@ -15,6 +15,7 @@ import {SherbimetService} from '../_services/OraretServices/sherbimet.service';
 import {element} from 'protractor';
 import {PunetoretService} from '../_services/OraretServices/punetoret.service';
 import {DergoRezerviminService} from '../_services/OraretServices/dergo-rezervimin.service';
+import {PreloaderService} from '../_services/preloader.service';
 import validate = WebAssembly.validate;
 
 
@@ -57,7 +58,8 @@ export class OraretComponent implements OnInit {
      public datepipe: DatePipe,
      private _snackBar:MatSnackBar,
      private authService: AuthService,
-     public spinnerService:NgxSpinnerService) {
+     public spinnerService:NgxSpinnerService,
+     private prel:PreloaderService) {
      this.typeSelected = 'timer';
 
      }
@@ -99,9 +101,6 @@ export class OraretComponent implements OnInit {
       numri: ['', Validators.required,]
     });
 
-
-    // this.oraretService.getOraret().subscribe(
-    //   response => this.oraret = response.oraret);
   }
   numericOnly(event): boolean {
     let patt = /^([0-9])$/;
@@ -112,7 +111,9 @@ export class OraretComponent implements OnInit {
     this.oraret = [];
     console.log(this.datepipe.transform(this.dataZgjedhur,'yyyy-MM-dd'));
     this.getOraret(this.dataZgjedhur);
-    this.showSpinner();//shfaqe preloaderin
+    this.prel.showSpinner();
+
+
 
   }
 
@@ -151,13 +152,6 @@ export class OraretComponent implements OnInit {
     );
 
 }
-  public showSpinner(): void {
-    this.spinnerService.show();
-
-    setTimeout(() => {
-      this.spinnerService.hide();
-    }, 1000); //1 sekond i shfaqur
-  }
 
 
 }

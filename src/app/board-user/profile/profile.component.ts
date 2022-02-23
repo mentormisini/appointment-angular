@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   username='';
   roles: string[] = [];
   startDate = new Date(1990, 0, 1);
+
   constructor(private tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
@@ -21,9 +22,9 @@ export class ProfileComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
-
     }
   }
+
   signOut() {
     window.sessionStorage.clear();
   }

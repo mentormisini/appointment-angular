@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   durationInSeconds=5;
-
+  hideElement=true;
   username = '';
   password='';
 
@@ -43,16 +43,13 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+
     }
   }
-
-
   handleClear(){
     this.form.username='';
     this.form.password='';
-
   }
-
 
   onSubmit() {
     this.authService.login(this.form).subscribe(
@@ -65,16 +62,13 @@ export class LoginComponent implements OnInit {
         this.handleLogin();
       },
       err => {
-
         this.openSnackBar();
         this.isLoginFailed = true;
       }
     );
   }
 
-
   handleLogin(){
     this.router.navigate(['board-user']);
   }
 }
-

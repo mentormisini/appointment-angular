@@ -24,7 +24,8 @@ body {
 }
 
 .border-line {
-    border-right: 1px solid #EEEEEE
+    border-right: 1px solid #EEEEEE;
+    margin-top:30px
 }
 
 .line {
@@ -59,7 +60,6 @@ body {
     font-weight: 300
 }
 
-
 textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
@@ -80,8 +80,6 @@ a {
     cursor: pointer
 }
 
-
-
 .btn-blue:hover {
     background-color: rgb(180, 180, 180);
     cursor: pointer
@@ -90,6 +88,36 @@ a {
 .bg-blue {
     color: #fff;
     background-color: #1A237E
+}
+
+#fjalekalimi::before{
+  content: "\a";
+  white-space: pre;
+}
+.decoration-text{
+  position: relative;
+  text-decoration: none;
+}
+.decoration-text:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom:0;
+  left: 0;
+  margin-bottom:-8px;
+  background-color: #0a1c5e;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.decoration-text:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.mycursor{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 991px) {

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HelloWorldService } from './hello-world.service';
+import { PreloaderService } from './preloader.service';
 
-describe('HelloWorldService', () => {
-  let service: HelloWorldService;
+describe('PreloaderService', () => {
+  let service: PreloaderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HelloWorldService);
+    service = TestBed.inject(PreloaderService);
   });
 
   it('should be created', () => {

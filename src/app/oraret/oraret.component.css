@@ -1,5 +1,6 @@
-
-
+.posht{
+  margin-top: 8px;
+}
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
@@ -55,8 +56,6 @@
     width: 100%;
   }
 
-
-
   .line {
     height: 1px;
     width: 45%;
@@ -109,12 +108,9 @@
     width: 100%;
   }
 
-  td {
-    padding-right: 8px;
+  .spc {
+  padding-right: 10px;
   }
-
-
-
 
   button:focus {
     -moz-box-shadow: none !important;
@@ -128,16 +124,16 @@
     cursor: pointer
   }
 
-
-
+table, thead, tbody, th, td, tr {
+ border: none !important;
+  border-collapse: collapse !important;
+}
   .border-line {
-    border-right: 1px solid #dadada;
+    border-right: 0px solid #dadada;
     height: 100%;
   }
 
-
   .bg-blue {
-
     background-color: #1A237E;
   }
 
@@ -185,7 +181,6 @@
 
 
   }
-
 
 .mat-stepper-horizontal, .mat-stepper-vertical{
   background-color: #fff;

@@ -8,6 +8,7 @@ import { ProfileComponent} from './profile/profile.component';
   templateUrl: './board-user.component.html',
   styleUrls: ['./board-user.component.css']
 })
+
 export class BoardUserComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
@@ -15,6 +16,7 @@ export class BoardUserComponent implements OnInit {
   roles: string[] = [];
   startDate = new Date(1990, 0, 1);
   callcomponent:any;
+
   constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
