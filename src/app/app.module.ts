@@ -25,6 +25,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
 import { ProfileComponent} from './board-user/profile/profile.component';
+import {MyHistoryComponent} from './board-user/my-history/my-history.component';
+import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ProfileComponent} from './board-user/profile/profile.component';
     ForgotpasswordComponent,
     OraretComponent,
     ResetPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyHistoryComponent,
+    MyAppointmentComponent
 
   ],
 

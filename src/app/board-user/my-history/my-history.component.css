@@ -1,0 +1,17 @@
+
+table {
+  width: 100%;
+}
+.modifcard{
+  width: 90%;
+  border-radius: 10px;
+  box-shadow:rgb(14 24 36 / 15%) 0px 4px 8px -2px;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 4%;
+}
+
+
+::ng-deep.mat-form-field-infix{
+  margin-left:10px;
+}

@@ -94,6 +94,14 @@ a {
   content: "\a";
   white-space: pre;
 }
+.uppermargin{
+  float:left;
+  margin-top: -10px;
+}
+.font-w{
+  font-weight: 500;
+  color: #1A237E;
+}
 .decoration-text{
   position: relative;
   text-decoration: none;

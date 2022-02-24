@@ -16,6 +16,7 @@ export class RegisterUserComponent implements OnInit {
   errorMessage = '';
   numri='04';
   kohapritjes=5;
+  hideElement=true;
   startDate = new Date(1990, 0, 1);
 
   constructor(private authService: AuthService,

@@ -156,12 +156,16 @@
                                 type="password"
                                 name="password"
                                 [(ngModel)]="form.password"
+                                [type]="hideElement ? 'password' : 'text'"
                                 minlength="6"
                                 maxlength="30"
                                 #password="ngModel"
                                 placeholder="Sheno Fjalekalimin"
-                                       autocomplete="on"
-                                required >
+                                autocomplete="on"
+                                required>
+                              <mat-icon class="mycursor" matSuffix (click)="hideElement = !hideElement">
+                                {{hideElement ? 'visibility_off' : 'visibility'}}
+                              </mat-icon>
                               </mat-form-field>
                         </div>
 

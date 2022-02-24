@@ -71,4 +71,6 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     this.router.navigate(['board-user']);
   }
+
+
 }

@@ -1,5 +1,4 @@
 .errs{
-   
     color:hsl(0, 59%, 41%);
 }
 input.ng-valid  {
@@ -23,7 +22,7 @@ input.ng-valid  {
     color:red;
     float:right;
     vertical-align: text-top;
-    
+
 }
 
 .col-lg-6 {
@@ -50,9 +49,7 @@ body {
     width: 100%;
 }
 
-.border-line {
-    border-right: 1px solid #EEEEEE
-}
+
 
 .line {
     height: 1px;
@@ -104,7 +101,7 @@ a {
 
 .btn-blue {
     background-color: #1A237E;
-    width: 150px;
+    width: 280px;
     color: #fff;
     border-radius: 2px
 }

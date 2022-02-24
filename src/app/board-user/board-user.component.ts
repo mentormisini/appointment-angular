@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ResetPasswordComponent} from './reset-password/reset-password.component';
 import { ProfileComponent} from './profile/profile.component';
+import {MyHistoryComponent} from './my-history/my-history.component';
+import {MyAppointmentComponent} from './my-appointment/my-appointment.component';
 
 @Component({
   selector: 'app-board-user',
@@ -27,13 +29,19 @@ export class BoardUserComponent implements OnInit {
       this.callProfile()
     }
   }
-
+  signOut() {
+    window.sessionStorage.clear();
+  }
   callProfile(){
     this.callcomponent=ProfileComponent;
   }
   callPassword(){
     this.callcomponent=ResetPasswordComponent;
   }
-
-
+  callmyHistory(){
+    this.callcomponent=MyHistoryComponent;
+  }
+  callmyAppointment(){
+    this.callcomponent=MyAppointmentComponent;
+  }
 }

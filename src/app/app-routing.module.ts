@@ -11,6 +11,8 @@ import {BoardUserComponent} from './board-user/board-user.component';
 import {OraretComponent} from './oraret/oraret.component';
 import {ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
 import {ProfileComponent} from './board-user/profile/profile.component';
+import {MyHistoryComponent} from './board-user/my-history/my-history.component';
+import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path:'oraret',component:OraretComponent},
   { path:'board-user/reset-password',component:ResetPasswordComponent},
   { path:'profile',component:ProfileComponent},
+  { path:'my-history',component:MyHistoryComponent},
+  { path:'my-appointment',component:MyAppointmentComponent},
   { path:'**', component: ErrorComponent}
 
 ];

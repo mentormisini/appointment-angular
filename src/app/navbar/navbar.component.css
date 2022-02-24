@@ -87,8 +87,11 @@
         margin-top:7px;
         margin-left: -20px;
         margin-right: -20px;
-        width: 100%;
+        padding:10px;
         border-bottom:5px solid #1881FF;
+        height: 100vh;
+
+
     }
     .navbar-brand{
         display: inline-block;
@@ -100,7 +103,17 @@
     .navbar-toggler-icon{
         margin-top:-10px;
   }
+    .nav-item{
+      padding: 10px;
+      font-size: 25px;
+    }
+    .menuicon{
+      width: 25px;
+    }
+  .nav-link.active {
+    font-weight: 500;
+    border-bottom: 1px solid #000000;
 
-
+  }
 
 }
