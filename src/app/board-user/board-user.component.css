@@ -1,11 +1,9 @@
 body {
   margin: 0;
 }
-
 a{
   cursor: pointer;
 }
-
 .sidebar {
   margin: 0;
   padding: 0;
@@ -19,22 +17,27 @@ a{
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
-  text-decoration: none;
+  padding: 15px;
 }
 .sidebar a.active {
-  background-color: #0c55ee;
+  background-color: #1A237E;
   color: white;
 }
 .sidebar a:hover:not(.active) {
   background-color: #cecece;
+}
+a{
+  border-bottom:1px solid #E5E5E5;
+}
+.active{
+  background-color: #1A237E;
 }
 div.content {
   margin-left: 200px;
 }
 .topper{
   background-color: #ffffff;
-  padding: 10px;
+  padding: 11px;
   margin-left: 20px;
   box-shadow:1px 1px 1px #e2e2e2;
 }
@@ -60,20 +63,15 @@ td{
   height: 60px;
   margin-top: -20px;
 }
-
-
 .teDhenatUser{
   padding: 10px;
 }
-
 .column1{
   flex:60%;
 }
-
 .column2{
   flex:20%;
 }
-
 .down{
   font-weight: 500;
   height: 100%;
@@ -89,7 +87,6 @@ td{
   flex-wrap: wrap;
   width: 100%;
 }
-
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;

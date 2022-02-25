@@ -42,6 +42,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: '15:30', name: '02/02/2020', weight:'Ngjyrosje', symbol: 'Xheki'},
   {position: '15:30', name: '02/02/2020', weight:'Ngjyrosje', symbol: 'Xheki'},
   {position: '15:30', name: '02/02/2020', weight:'Ngjyrosje', symbol: 'Xheki'},
-
-
 ];

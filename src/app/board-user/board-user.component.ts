@@ -18,6 +18,7 @@ export class BoardUserComponent implements OnInit {
   roles: string[] = [];
   startDate = new Date(1990, 0, 1);
   callcomponent:any;
+  statusNgjyra=0;
 
   constructor(private tokenStorage: TokenStorageService) { }
 
@@ -26,22 +27,30 @@ export class BoardUserComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
-      this.callProfile()
+      this.callProfile();
     }
+    else{
+      this.callProfile();
+    }
+
   }
   signOut() {
     window.sessionStorage.clear();
   }
   callProfile(){
     this.callcomponent=ProfileComponent;
+
   }
   callPassword(){
     this.callcomponent=ResetPasswordComponent;
+
   }
   callmyHistory(){
     this.callcomponent=MyHistoryComponent;
+
   }
   callmyAppointment(){
     this.callcomponent=MyAppointmentComponent;
   }
+
 }

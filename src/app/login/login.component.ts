@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl,FormControlName,FormGroup,Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements AfterViewInit {
 
   form: any = {};
   isLoggedIn = false;
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   hideElement=true;
   username = '';
   password='';
-
+  @ViewChild('userRef')userElement:ElementRef;
   constructor(
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
         this.handleClear();
       }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-
     }
+    this.userElement.nativeElement.focus();
   }
   handleClear(){
     this.form.username='';
@@ -71,6 +71,4 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     this.router.navigate(['board-user']);
   }
-
-
 }
