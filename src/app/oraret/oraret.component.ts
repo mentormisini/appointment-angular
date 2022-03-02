@@ -29,7 +29,7 @@ import validate = WebAssembly.validate;
 export class OraretComponent implements OnInit {
   toppings = new FormControl();
   dataZgjedhur:Date;
-  oraret: string[] = [];
+  oraret:string[]=[];
   sherbimi:string[]=[];
   punetori:string[]=[];
   firstFormGroup:FormGroup;
@@ -48,6 +48,7 @@ export class OraretComponent implements OnInit {
   deshtimiTerminit='';
   realizmiKorrekt = false;
   realizimiFatal = false;
+  showOraret=true;
 
 
   constructor(private oraretService: OraretService,
@@ -74,15 +75,15 @@ export class OraretComponent implements OnInit {
 
       //shfaq sherbimet
       this.sherbimetService.getSherbimet().subscribe(
-        respond => {
-          this.sherbimi = respond.sherbimet;
+        responddata => {
+          this.sherbimi = responddata.sherbimet;
         });
-      //sherbimet end
+      // sherbimet end
 
-      //shfaq punetoret
+      // shfaq punetoret
       this.punetoretService.getPunetoret().subscribe(
         respond => {
-          this.punetori = respond.punetoret
+          this.punetori = respond.punetoret;
         });
       //punetoret end
 
@@ -112,6 +113,7 @@ export class OraretComponent implements OnInit {
     console.log(this.datepipe.transform(this.dataZgjedhur,'yyyy-MM-dd'));
     this.getOraret(this.dataZgjedhur);
     this.prel.showSpinner();
+    this.showOraret=false;
 
 
 
@@ -122,11 +124,7 @@ export class OraretComponent implements OnInit {
     let latest_date =this.datepipe.transform(this.dataZgjedhur, 'yyyy-MM-dd');
     this.oraretService.getOraret(latest_date).subscribe(
       respon => this.shfaqeOraret(respon));
-
-
   }
-
-
 
   shfaqeOraret(response){
     response.forEach(element => {
@@ -147,11 +145,8 @@ export class OraretComponent implements OnInit {
       gabim => {
         this.realizimiFatal=true;
         this.deshtimiTerminit=gabim.error.mesazhi;
-      }
-
-    );
-
-}
+      });
+  }
 
 
 }

@@ -20,12 +20,9 @@ export class SherbimetService {
 
   constructor(private http: HttpClient) {
   }
-
   getSherbimet() {
     return (this.http.get(`http://localhost:8080/terminet/shfaq-sherbimet`, httpOptions))
       .pipe(map((data: any) =>
         data));
   }
 }
-
-

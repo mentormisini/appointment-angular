@@ -101,18 +101,21 @@
                   <div class="card1 pb-5 posht">
                       <div class="row px-3 justify-content-center">
                       <ng-template matStepLabel>Hapi 1</ng-template>
-                      <mat-form-field appearance="fill"
-                      class="demo-inline-calendar-card">
+                      <mat-form-field *ngIf="!showOraret"
+                                      appearance="fill"
+                                      class="demo-inline-calendar-card">
                       <mat-label>Zgjedhe orarin</mat-label>
-                        <mat-select  [(ngModel)]="selektori" formControlName="orarizgjedhur" required>
-
-                          <mat-option *ngFor="let topping of oraret" [value]="topping">
-                            {{topping }}
+                        <mat-select [(ngModel)]="selektori"
+                                      formControlName="orarizgjedhur"
+                                      required>
+                          <mat-option *ngFor="let topping of oraret"
+                                      [value]="topping">
+                                      {{topping }}
                           </mat-option >
                         </mat-select>
                       </mat-form-field>
-
                         <br>
+
                       <div>
                         <table>
                           <tr>

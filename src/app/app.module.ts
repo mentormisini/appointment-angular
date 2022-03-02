@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAppointmentsComponent } from './list-appointments/list-appointments.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -25,8 +25,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
 import { ProfileComponent} from './board-user/profile/profile.component';
-import {MyHistoryComponent} from './board-user/my-history/my-history.component';
-import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
+import { MyHistoryComponent} from './board-user/my-history/my-history.component';
+import { MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
+import { InterceptorService} from './_services/interceptor.service';
 
 
 @NgModule({
@@ -50,8 +51,6 @@ import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment
     MyAppointmentComponent
 
   ],
-
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,7 +71,7 @@ import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment
 
 
   ],
-  providers: [authInterceptorProviders, DatePipe],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}, authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 

@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl,FormControlName,FormGroup,Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,20 +19,18 @@ export class LoginComponent implements AfterViewInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  durationInSeconds=5;
-  hideElement=true;
-  username = '';
-  password='';
-  @ViewChild('userRef')userElement:ElementRef;
+  durationInSeconds = 5;
+  hideElement = true;
+  @ViewChild('userRef')userElement: ElementRef;
   constructor(
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
       private router: Router,
-      private _snackBar: MatSnackBar)
-      { }
+      private snackBar: MatSnackBar) {
+      }
 
        openSnackBar() {
-        this._snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
+        this.snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
           duration: this.durationInSeconds * 1000
         });
         this.handleClear();
@@ -46,9 +43,9 @@ export class LoginComponent implements AfterViewInit {
     }
     this.userElement.nativeElement.focus();
   }
-  handleClear(){
-    this.form.username='';
-    this.form.password='';
+  handleClear() {
+    this.form.username = '';
+    this.form.password = '';
   }
 
   onSubmit() {
@@ -68,7 +65,7 @@ export class LoginComponent implements AfterViewInit {
     );
   }
 
-  handleLogin(){
+  handleLogin() {
     this.router.navigate(['board-user']);
   }
 }
