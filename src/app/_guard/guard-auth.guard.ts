@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { TokenStorageService} from '../_services/token-storage.service';
 import { ToastrService} from 'ngx-toastr';
+import {getDecoratorStripTransformerFactory} from '@angular/compiler-cli/src/transformers/r3_strip_decorators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,3 @@ export class GuardAuthGuard implements CanActivate {
     return false;
   }
 }
-
