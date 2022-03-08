@@ -38,10 +38,10 @@
                                 <ng-template matStepLabel>Info</ng-template>
                                 <br>
 
-                                <mat-form-field appearance="fill" class="demo-inline-calendar-card">
+                                <mat-form-field  appearance="fill" class="demo-inline-calendar-card">
                                 <mat-label>Zgjedhe Sherbimin</mat-label>
 
-                                  <mat-select  [(ngModel)]="sherbimiZgj" formControlName="sherbimiZgjedhur" >
+                                  <mat-select [(ngModel)]="sherbimiZgj"  formControlName="sherbimiZgjedhur" >
                                     <mat-option *ngFor="let sherbim of sherbimi"  [value]="sherbim">
                                       {{sherbim}}
                                     </mat-option >
@@ -192,9 +192,9 @@
                         <div class="row px-3 justify-content-center">
                         <ng-template matStepLabel>Hapi 2</ng-template>
                         <br>
-                        <table class="example-full-width" cellspacing="0">
-                          <tr>
-                          <td class="spc"><mat-form-field class="example-full-width" appearance="fill">
+                        <table class="tabela example-full-width" cellspacing="0">
+                          <tr class="tr1">
+                          <td class="td1"><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
                             <input type="text"
                             minlength="3"
@@ -202,7 +202,7 @@
                              #emri matInput formControlName="emri"
                              required>
                           </mat-form-field></td>
-                          <td><mat-form-field class="example-full-width" appearance="fill">
+                          <td class="td1"><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mbiemri</mat-label>
                             <input type="text"
                              formControlName="mbiemri"
@@ -242,7 +242,7 @@
                           <table>
                           <tr>
                             <td class="btn-kthehu"><button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> </td>
-                            <td class="btn-ok"><button name="rezervo" type="submit" (click)="submit()" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button></td>
+                            <td class="btn-go"><button name="rezervo" type="submit" (click)="submit()" class="btn btn-blue text-center" matStepperNext >Rezervo Terminin</button></td>
                           </tr>
                           </table>
                         </div>

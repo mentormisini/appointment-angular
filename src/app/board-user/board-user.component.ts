@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { ResetPasswordComponent} from './reset-password/reset-password.component';
-import { ProfileComponent} from './profile/profile.component';
-import {MyHistoryComponent} from './my-history/my-history.component';
-import {MyAppointmentComponent} from './my-appointment/my-appointment.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MyHistoryComponent } from './my-history/my-history.component';
+import { MyAppointmentComponent } from './my-appointment/my-appointment.component';
+import { PreloaderService } from '../_services/preloader.service';
 
 @Component({
   selector: 'app-board-user',
@@ -14,43 +15,46 @@ import {MyAppointmentComponent} from './my-appointment/my-appointment.component'
 export class BoardUserComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
-  username='';
+  username = '';
   roles: string[] = [];
   startDate = new Date(1990, 0, 1);
-  callcomponent:any;
-  statusNgjyra=0;
+  callcomponent: any;
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService,
+              private preloader: PreloaderService) {
+  }
 
   ngOnInit(): void {
+    this.preloader.showSpinner();
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
       this.callProfile();
-    }
-    else{
+    } else {
       this.callProfile();
     }
-
   }
+
   signOut() {
-    window.sessionStorage.clear();
+    this.tokenStorage.logOut();
   }
-  callProfile(){
-    this.callcomponent=ProfileComponent;
 
+  callProfile() {
+    this.callcomponent = ProfileComponent;
   }
-  callPassword(){
-    this.callcomponent=ResetPasswordComponent;
 
+  callPassword() {
+    this.callcomponent = ResetPasswordComponent;
   }
-  callmyHistory(){
-    this.callcomponent=MyHistoryComponent;
 
+  callmyHistory() {
+    this.callcomponent = MyHistoryComponent;
   }
-  callmyAppointment(){
-    this.callcomponent=MyAppointmentComponent;
+
+  callmyAppointment() {
+    this.callcomponent = MyAppointmentComponent;
   }
+
 
 }

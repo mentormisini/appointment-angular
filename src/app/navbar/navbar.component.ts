@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
-import {PreloaderService} from '../_services/preloader.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { PreloaderService} from '../_services/preloader.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,24 +8,24 @@ import {PreloaderService} from '../_services/preloader.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-public isCollapsed=false; //hamburger icona
-typeSelected:string;
-  navbaridRef:any;
-  constructor(public prl: PreloaderService
-              ) {
+  public isCollapsed = false;
+  public user: any;
+  typeSelected: string;
+
+  constructor(public prl: PreloaderService,
+              private token: TokenStorageService) {
     this.typeSelected = 'timer';
   }
 
-  ToggleNavBar () {
-    let element: HTMLElement = document.getElementsByClassName( 'navbar-toggler' )[ 0 ] as HTMLElement;
-    if ( element.getAttribute( 'aria-expanded' ) == 'true' ) {
+  ToggleNavBar() {
+    const element: HTMLElement = document.getElementsByClassName('navbar-toggler')[0] as HTMLElement;
+    if (element.getAttribute('aria-expanded') === 'true') {
       element.click();
     }
   }
   ngOnInit(): void {
-
   }
-  showLoader(){
+  showLoader() {
     this.prl.showSpinner();
   }
 }

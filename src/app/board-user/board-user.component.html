@@ -1,6 +1,6 @@
 
 <div class="nav flex-column sidebar scrollmenu" >
-<a  class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"  (click)="callProfile()">
+<a   class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"  (click)="callProfile()">
     <svg xmlns="http://www.w3.org/2000/svg" width="25"  fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
     </svg>
@@ -43,7 +43,10 @@
 </div>
 
 <div class="content">
-  <div class="topper"><h2 class="d-inline">Hi {{username}} </h2>
+  <ngx-spinner bdColor = "rgba(255,255,255,0.7)" size = "medium" color = "#081540" type = "timer"[fullScreen] = "false">
+    <p style="color:#081540">Po Ngarkohet</p>
+  </ngx-spinner>
+  <div class="topper"><h2 class="d-inline">Hi {{username}}</h2>
 
   </div>
 

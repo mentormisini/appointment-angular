@@ -8,7 +8,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Injectable()

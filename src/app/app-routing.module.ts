@@ -13,7 +13,7 @@ import {ResetPasswordComponent} from './board-user/reset-password/reset-password
 import {ProfileComponent} from './board-user/profile/profile.component';
 import {MyHistoryComponent} from './board-user/my-history/my-history.component';
 import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
-
+import { GuardAuthGuard} from './_guard/guard-auth.guard';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
@@ -21,14 +21,13 @@ const routes: Routes = [
   { path:'terminet', component: ListAppointmentsComponent},
   { path:'register-user',component:RegisterUserComponent},
   { path:'forgotpassword',component:ForgotpasswordComponent},
-  { path:'board-user',component:BoardUserComponent},
+  { path:'board-user',component:BoardUserComponent, canActivate: [GuardAuthGuard]},
   { path:'oraret',component:OraretComponent},
   { path:'board-user/reset-password',component:ResetPasswordComponent},
   { path:'profile',component:ProfileComponent},
   { path:'my-history',component:MyHistoryComponent},
   { path:'my-appointment',component:MyAppointmentComponent},
   { path:'**', component: ErrorComponent}
-
 ];
 
 @NgModule({

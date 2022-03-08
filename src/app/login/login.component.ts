@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { PreloaderService } from '../_services/preloader.service';
 
 
 @Component({
@@ -21,12 +21,14 @@ export class LoginComponent implements AfterViewInit {
   roles: string[] = [];
   durationInSeconds = 5;
   hideElement = true;
+  user: string;
   @ViewChild('userRef')userElement: ElementRef;
   constructor(
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
       private router: Router,
-      private snackBar: MatSnackBar) {
+      private snackBar: MatSnackBar,
+      private preload: PreloaderService) {
       }
 
        openSnackBar() {
@@ -56,6 +58,7 @@ export class LoginComponent implements AfterViewInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.preload.showSpinner();
         this.handleLogin();
       },
       err => {

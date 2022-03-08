@@ -28,6 +28,7 @@ import { ProfileComponent} from './board-user/profile/profile.component';
 import { MyHistoryComponent} from './board-user/my-history/my-history.component';
 import { MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
 import { InterceptorService} from './_services/interceptor.service';
+import {GuardAuthGuard} from './_guard/guard-auth.guard';
 
 
 @NgModule({
@@ -62,16 +63,9 @@ import { InterceptorService} from './_services/interceptor.service';
     MaterialModule,
     NgxSpinnerModule,
     ToastrModule.forRoot()
-
-
-
-
-
-
-
-
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}, authInterceptorProviders, DatePipe],
+  providers: [ GuardAuthGuard, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+    authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 
