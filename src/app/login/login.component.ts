@@ -2,8 +2,8 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { PreloaderService } from '../_services/preloader.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,17 +27,9 @@ export class LoginComponent implements AfterViewInit {
       private authService: AuthService,
       private tokenStorage: TokenStorageService,
       private router: Router,
-      private snackBar: MatSnackBar,
-      private preload: PreloaderService) {
+      private preload: PreloaderService,
+      private toastr: ToastrService) {
       }
-
-       openSnackBar() {
-        this.snackBar.open('Useri ose Fjalekalimi jo ne rregull','X', {
-          duration: this.durationInSeconds * 1000
-        });
-        this.handleClear();
-      }
-
   ngAfterViewInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -45,10 +37,16 @@ export class LoginComponent implements AfterViewInit {
     }
     this.userElement.nativeElement.focus();
   }
-  handleClear() {
+  showError() {
+    this.toastr.error(
+      'Useri ose Fjalekalimi Gabim!',
+      'Ndodhi nje Gabim',
+      {timeOut: 5000,
+        closeButton: true,
+        positionClass: 'toast-bottom-center'
+      });
     this.form.password = '';
   }
-
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
@@ -61,12 +59,11 @@ export class LoginComponent implements AfterViewInit {
         this.handleLogin();
       },
       err => {
-        this.openSnackBar();
+        this.showError();
         this.isLoginFailed = true;
       }
     );
   }
-
   handleLogin() {
     this.router.navigate(['board-user']);
   }
