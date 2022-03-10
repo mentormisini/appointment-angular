@@ -28,10 +28,10 @@ export class ProfileComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
-      this.sendUsername();
+      this.sendProfilDetails();
     }
   }
-  public sendUsername() {
+  public sendProfilDetails() {
     this.profiliService.getProfili(this.username).subscribe(
       respon => {
         this.email = respon.email;

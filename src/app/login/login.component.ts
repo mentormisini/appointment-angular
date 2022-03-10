@@ -46,7 +46,6 @@ export class LoginComponent implements AfterViewInit {
     this.userElement.nativeElement.focus();
   }
   handleClear() {
-    this.form.username = '';
     this.form.password = '';
   }
 

@@ -24,4 +24,9 @@ export class OraretService {
       .pipe(map((data: any) =>
         data));
   }
+  getProfili(username) {
+    return (this.http.get(`http://localhost:8080/terminet/profili/${username}`, httpOptions))
+      .pipe(map((data: any) =>
+        data));
+  }
 }

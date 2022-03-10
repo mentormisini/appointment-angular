@@ -120,7 +120,7 @@
                         <table>
                           <tr>
                             <td class="btn-kthehu"><button name="kthehu" class="btn btn-brown text-center" matStepperPrevious>Kthehu</button> </td>
-                          <td class="btn-ok"><button class="btn-blue" matStepperNext [disabled]="!selektori">Vazhdo</button></td>
+                          <td class="btn-ok"><button class="btn-blue" matStepperNext [disabled]="!selektori" (click)="sendProfilDetails()">Vazhdo</button></td>
                           </tr>
 
                         </table>&nbsp;
@@ -197,8 +197,9 @@
                           <td class="td1"><mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Emri </mat-label>
                             <input type="text"
-                            minlength="3"
+                             minlength="3"
                              maxlength="15"
+                             value="{{ showemri }}"
                              #emri matInput formControlName="emri"
                              required>
                           </mat-form-field></td>
@@ -209,6 +210,7 @@
                              minlength="3"
                              maxlength="15"
                              #mbiemri
+                             value="{{ showmbiemri }}"
                               matInput required>
                           </mat-form-field></td>
                         </tr>
@@ -222,6 +224,7 @@
                             <input type="email"
                             #email
                             minlength="5"
+                            value="{{ showemail }}"
                             maxlength="35" formControlName="email" matInput required>
                           </mat-form-field></td>
                         </tr>
@@ -233,6 +236,7 @@
                             minlength="5"
                             maxlength="15"
                             formControlName="numri"
+                            value="{{ showcelulari }}"
                             matInput (keypress)="numericOnly($event)"
                            >
                           </mat-form-field></td>
