@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../../_services/token-storage.service';
 
 @Component({
   selector: 'app-my-appointment',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-appointment.component.css']
 })
 export class MyAppointmentComponent implements OnInit {
-
-  constructor() { }
+user: string;
+  constructor(private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.user = this.token.getUser().username;
   }
 
 }

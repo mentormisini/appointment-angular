@@ -8,13 +8,8 @@ import { PreloaderService} from '../_services/preloader.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public isCollapsed = false;
-  public user: any;
-  typeSelected: string;
-
   constructor(public prl: PreloaderService,
               private token: TokenStorageService) {
-    this.typeSelected = 'timer';
   }
 
   ToggleNavBar() {
@@ -24,8 +19,17 @@ export class NavbarComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.isLogged();
   }
   showLoader() {
     this.prl.showSpinner();
+  }
+  public isLogged() {
+    if ( this.token.isLoggedIn()){
+      return true;
+    }
+    else {
+      return  false;
+    }
   }
 }
