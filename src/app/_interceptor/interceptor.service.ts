@@ -36,7 +36,9 @@ export class InterceptorService implements HttpInterceptor {
           }
           this.router.navigate(['login']);
           // ne display na dalin 2 notification ? arsya: jan dy 401 requests;
-          this.toastr.info('Pastaj realizo terminin','Logohu se pari ',
+          this.toastr.info(
+            'Pastaj realizo terminin',
+            'Logohu se pari ',
             {timeOut: 5000,
             progressBar: true,
             progressAnimation: 'decreasing',

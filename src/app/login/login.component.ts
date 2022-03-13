@@ -39,11 +39,11 @@ export class LoginComponent implements AfterViewInit {
   }
   showError() {
     this.toastr.error(
-      'Useri ose Fjalekalimi Gabim!',
-      'Ndodhi nje Gabim',
+      'Useri ose Fjalekalimi jo korrekt!',
+      'Ka ndodhur nje Gabim ',
       {timeOut: 5000,
         closeButton: true,
-        positionClass: 'toast-bottom-center'
+        positionClass: 'toast-bottom-center',
       });
     this.form.password = '';
   }
@@ -65,6 +65,6 @@ export class LoginComponent implements AfterViewInit {
     );
   }
   handleLogin() {
-    this.router.navigate(['board-user']);
+    this.router.navigate(['board-user/my-appointment']);
   }
 }

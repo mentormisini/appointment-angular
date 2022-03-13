@@ -1,11 +1,11 @@
-<app-navbar ></app-navbar>
+<app-navbar></app-navbar>
 <div id="page-container">
     <div id="content-wrap">
 
         <router-outlet></router-outlet>
 
     </div>
-<footer id="footer">
+<footer id="footer" *ngIf="_router.url !='/board-user/profile'">
 <app-footer></app-footer>
 </footer>
 </div>

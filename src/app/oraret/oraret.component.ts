@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OraretService } from '../_services/OraretServices/oraret.service';
 import { DatePipe, formatDate } from '@angular/common';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 import {SherbimetService} from '../_services/OraretServices/sherbimet.service';
 import {PunetoretService} from '../_services/OraretServices/punetoret.service';
@@ -52,18 +51,12 @@ export class OraretComponent implements OnInit {
               private dergoRezerviminService: DergoRezerviminService,
               private _formBuilder: FormBuilder,
               public datepipe: DatePipe,
-              private _snackBar: MatSnackBar,
               private authService: AuthService,
               private prel: PreloaderService,
               private tokenStorage: TokenStorageService) {
      this.typeSelected = 'timer';
      }
 
-     openSnackBar() {
-      this._snackBar.open('Zgjedheni Daten pastaj oren', 'X', {
-        duration: this.kohapritjes * 1000,
-      });
-    }
     ngOnInit(): void {
       // shfaq sherbimet
       this.sherbimetService.getSherbimet().subscribe(

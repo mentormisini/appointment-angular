@@ -6,27 +6,35 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { BoardAdminComponent} from './board-admin/board-admin.component';
-import {BoardUserComponent} from './board-user/board-user.component';
-import {OraretComponent} from './oraret/oraret.component';
-import {ResetPasswordComponent} from './board-user/reset-password/reset-password.component';
-import {ProfileComponent} from './board-user/profile/profile.component';
-import {MyHistoryComponent} from './board-user/my-history/my-history.component';
-import {MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
-import { GuardAuthGuard} from './_guard/guard-auth.guard';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { OraretComponent } from './oraret/oraret.component';
+import { ResetPasswordComponent } from './board-user/reset-password/reset-password.component';
+import { ProfileComponent } from './board-user/profile/profile.component';
+import { MyHistoryComponent } from './board-user/my-history/my-history.component';
+import { MyAppointmentComponent } from './board-user/my-appointment/my-appointment.component';
+import { GuardAuthGuard } from './_guard/guard-auth.guard';
+import {UnSavedGuard} from './_guard/un-saved.guard';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
   { path:'login', component: LoginComponent },
   { path:'terminet', component: ListAppointmentsComponent},
-  { path:'register-user',component:RegisterUserComponent},
+  { path:'register-user',component:RegisterUserComponent, canDeactivate: [UnSavedGuard]},
   { path:'forgotpassword',component:ForgotpasswordComponent},
-  { path:'board-user',component:BoardUserComponent, canActivate: [GuardAuthGuard]},
   { path:'oraret',component:OraretComponent},
-  { path:'board-user/reset-password',component:ResetPasswordComponent},
-  { path:'profile',component:ProfileComponent},
-  { path:'my-history',component:MyHistoryComponent},
-  { path:'my-appointment',component:MyAppointmentComponent},
+
+  //nastedRoutes Parent Component
+      { path:'board-user',component:BoardUserComponent, canActivate: [GuardAuthGuard],
+  //Children Components
+      children: [
+      { path:'reset-password',component:ResetPasswordComponent},
+      { path:'profile',component:ProfileComponent},
+      { path:'my-history',component:MyHistoryComponent},
+      { path:'my-appointment',component:MyAppointmentComponent},
+      { path:'', redirectTo:'profile',pathMatch: 'full'}
+      ]},
+
   { path:'**', component: ErrorComponent}
 ];
 

@@ -57,7 +57,7 @@
                                     </mat-select>
                                 </mat-form-field>
                                 <div>
-                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!puntoriZgj" (click)="openSnackBar()">
+                                  <button class="btn btn-blue text-center" matStepperNext [disabled]="!puntoriZgj">
                                     Vazhdo
                                   </button>
                                 </div>
@@ -154,12 +154,12 @@
                               <hr>
                               <p>Ploteso te dhenat tuaja, Konfrimo ato dhe shtyp butonin rezervo</p>
 
-                            <b>Sherbimi</b>
+                            <b>Sherbimi:</b>
                               <b class="detajet">
                                 {{sherbimiZgj}}
                               </b>
                             <br>
-                            <b>Punetori</b>
+                            <b>Punetori:</b>
                               <b class="detajet">
                                 {{puntoriZgj}}
                               </b>
@@ -169,7 +169,7 @@
                             {{dataZgjedhur| date : 'dd-MM-yyyy'}}  {{selektori}}
                             </b>
                             <br>
-                            <b>Emri dhe Mbiemri</b>
+                            <b>Emri dhe Mbiemri:</b>
                             <b class="detajet"> {{emri.value}} {{mbiemri.value}}  </b>
 
                             <br>
