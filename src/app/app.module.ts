@@ -27,8 +27,8 @@ import { ResetPasswordComponent} from './board-user/reset-password/reset-passwor
 import { ProfileComponent} from './board-user/profile/profile.component';
 import { MyHistoryComponent} from './board-user/my-history/my-history.component';
 import { MyAppointmentComponent} from './board-user/my-appointment/my-appointment.component';
-import { InterceptorService} from './_services/interceptor.service';
 import { GuardAuthGuard} from './_guard/guard-auth.guard';
+import {InterceptorService} from './_interceptor/interceptor.service';
 
 
 @NgModule({
